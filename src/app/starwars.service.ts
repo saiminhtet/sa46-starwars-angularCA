@@ -6,6 +6,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 
+import { People } from './model/people';
+import { Planet } from './model/planet';
+import { Species } from './model/species';
+import { Film } from './model/film';
+import { Starship } from './model/starship';
+import { Vehicle } from './model/vehicle';
+
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -21,6 +29,17 @@ export class StarwarsService {
     private http: HttpClient,
      private messageService: MessageService) { }
 
+
+
+ /** GET Peoples from the server */
+
+ getPeoples (): Observable<People[]> {
+  return this.http.get<People[]>(this.starwars_Url + 'people/' )
+  .pipe(
+    tap(_ => this.log('fetched peoples')),
+    catchError(this.handleError('getStarWarsCategories', []))
+    );
+}
 
      /**
    * Handle Http operation that failed.
