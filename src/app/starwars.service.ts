@@ -23,7 +23,7 @@ const httpOptions = {
 })
 export class StarwarsService {
 
-  private starwars_Url = 'https://swapi.co/api/';  // URL to web api
+  private starwars_Url = 'https://swapi.co/api';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -34,12 +34,22 @@ export class StarwarsService {
  /** GET Peoples from the server */
 
  getPeoples (): Observable<People[]> {
-  return this.http.get<People[]>(this.starwars_Url + 'people/' )
+  return this.http.get<People[]>(this.starwars_Url + '/people/' )
   .pipe(
     tap(_ => this.log('fetched peoples')),
-    catchError(this.handleError('getStarWarsCategories', []))
+    catchError(this.handleError('getPeoples', []))
     );
-}
+ }
+
+  /** GET People by id. Will 404 if id not found */
+  getPeoplebyId(id: number): Observable<People> {
+    const url = this.starwars_Url +'/people/'+ id;
+    console.log(url);
+    return this.http.get<People>(url).pipe(
+      tap(_ => this.log(`fetched People id=${id}`)),
+      catchError(this.handleError<People>(`getPeoplebyId id=${id}`))
+    );
+  }
 
      /**
    * Handle Http operation that failed.

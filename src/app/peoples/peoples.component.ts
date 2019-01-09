@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { StarwarsService } from '../starwars.service';
 
 import { People } from '../model/people';
@@ -11,7 +13,8 @@ export class PeoplesComponent implements OnInit {
 
   peoples: People[];
 
-  constructor(private starwarsService: StarwarsService) { }
+  constructor(private starwarsService: StarwarsService,
+  private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getPeoples();
@@ -22,5 +25,9 @@ export class PeoplesComponent implements OnInit {
     .subscribe(peoples => this.peoples = peoples['results']);
   }
 
+  getPeopleDetails(url: string) {
+    const id = url.split('/')[5];
+    this.router.navigate(['/people/', id ]);
+  }
 
 }

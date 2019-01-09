@@ -5,14 +5,16 @@ import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 
 export class People {
-  name: string;
-    birth_year: string;
-    eye_color: string;
-    gender: string;
-    hair_color: string;
+    name: string;
     height: string;
     mass: string;
+    hair_color: string;
     skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    gender: string;
+
+
     homeworld: string;  // Planet
     films: string[];    // Film
     species: string[];  // Species
@@ -25,4 +27,6 @@ export class People {
     p_films: Film[];
     p_starships: Starship[];
     p_vehicles: Vehicle[];
+
+
 }
