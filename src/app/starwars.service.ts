@@ -43,7 +43,7 @@ export class StarwarsService {
 
   /** GET People by id. Will 404 if id not found */
   getPeoplebyId(id: number): Observable<People> {
-    const url = this.starwars_Url +'/people/'+ id;
+    const url = this.starwars_Url + '/people/' + id;
     console.log(url);
     return this.http.get<People>(url).pipe(
       tap(_ => this.log(`fetched People id=${id}`)),
