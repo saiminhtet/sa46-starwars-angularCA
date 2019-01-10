@@ -5,13 +5,14 @@
 </mat-form-field>
 <button button="submit" mat-raised-button color="primary">Search</button>
 <br>
-
+<button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
   <mat-card class="card-picture" *ngFor="let people of peoples" >
      <mat-card-title (click)="getPeopleDetails(people['url'])">{{people.name}}</mat-card-title>
     <mat-card-subtitle>Character</mat-card-subtitle>
 
-    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR53ELJqdykZFmQMJMK7JvFPKRFuz7lbWdrwDvo18DXXoL2I4UP" (click)="getPeopleDetails(people['url'])">
+    <img mat-card-image src="{{people.img_url}}" (click)="getPeopleDetails(people['url'])">
      <mat-card-actions>
 
 
@@ -20,7 +21,8 @@
 
   </mat-card-actions>
   </mat-card>
-</div>
+
+  </div>
 
 
 

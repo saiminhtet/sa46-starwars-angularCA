@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 
+import { List } from './model/list';
 import { People } from './model/people';
 import { Planet } from './model/planet';
 import { Species } from './model/species';
@@ -33,25 +34,21 @@ export class StarwarsService {
 
  /** GET Peoples from the server */
 
-getPeoples (): Observable<People[]> {
-  return this.http.get<People[]>(this.starwars_Url + '/people/' )
+getPeoples (): Observable<List[]> {
+  return this.http.get<List[]>(this.starwars_Url + '/people/' )
   .pipe(
     tap(_ => this.log('fetched peoples')),
     catchError(this.handleError('getPeoples', []))
     );
 }
 
-
-  /*getPeoples (): Promise<People[]>{
-    return (this.http.get<People[]>(this.starwars_Url + '/people/' )
-    .toPromise()
-    .then(
-      result => {//Success
-        console.log(result);
-        return (result);
-      });
-  } */
-
+getPeoplesfromURL(API_URL): Observable<List[]> {
+  return this.http.get<List[]>(API_URL)
+  .pipe(
+    tap(_ => this.log('fetched peoples')),
+    catchError(this.handleError('getPeoples', []))
+    );
+}
   /** GET People by id. Will 404 if id not found */
   getPeoplebyId(id: number): Observable<People> {
     const url = this.starwars_Url + '/people/' + id;

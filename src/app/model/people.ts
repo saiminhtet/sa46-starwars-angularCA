@@ -13,6 +13,7 @@ export class People {
     eye_color: string;
     birth_year: string;
     gender: string;
+    img_url: string;
 
 
     homeworld: string;  // Planet
