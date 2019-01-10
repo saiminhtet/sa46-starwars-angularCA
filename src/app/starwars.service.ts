@@ -33,13 +33,24 @@ export class StarwarsService {
 
  /** GET Peoples from the server */
 
- getPeoples (): Observable<People[]> {
+getPeoples (): Observable<People[]> {
   return this.http.get<People[]>(this.starwars_Url + '/people/' )
   .pipe(
     tap(_ => this.log('fetched peoples')),
     catchError(this.handleError('getPeoples', []))
     );
- }
+}
+
+
+  /*getPeoples (): Promise<People[]>{
+    return (this.http.get<People[]>(this.starwars_Url + '/people/' )
+    .toPromise()
+    .then(
+      result => {//Success
+        console.log(result);
+        return (result);
+      });
+  } */
 
   /** GET People by id. Will 404 if id not found */
   getPeoplebyId(id: number): Observable<People> {
@@ -73,6 +84,6 @@ export class StarwarsService {
 
    /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`StarwarsService: ${message}`);
   }
 }

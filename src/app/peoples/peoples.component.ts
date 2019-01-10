@@ -20,10 +20,16 @@ export class PeoplesComponent implements OnInit {
     this.getPeoples();
   }
 
+
   getPeoples(): void {
     this.starwarsService.getPeoples()
     .subscribe(peoples => this.peoples = peoples['results']);
   }
+
+  /* getPeoples(): void {
+    this.starwarsService.getPeoples()
+     .then(peoples => this.peoples = peoples['results'])
+   }*/
 
   getPeopleDetails(url: string) {
     const id = url.split('/')[5];

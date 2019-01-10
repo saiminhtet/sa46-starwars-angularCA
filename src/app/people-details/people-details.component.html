@@ -1,5 +1,11 @@
 <div *ngIf="people">
   <h2>{{people.name | uppercase}} Details</h2>
   <div><span>name: </span>{{people.name}}</div>
-  <button (click)="goBack()">go back</button>
+
+   <ul>
+     <li *ngFor="let f of people.films">
+       <a>{{f}}</a>
+     </li>
+   </ul>
+  <button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
 </div>
