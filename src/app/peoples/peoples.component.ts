@@ -15,6 +15,7 @@ export class PeoplesComponent implements OnInit {
 
   peoples: People[];
   list: List[];
+  loading  =  true;
   constructor(private starwarsService: StarwarsService,
   private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -35,6 +36,7 @@ export class PeoplesComponent implements OnInit {
                 console.log('id', people_id);
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
+              this.loading  =  false;
               console.log('peoples', this.peoples);
       });
   }

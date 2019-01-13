@@ -1,4 +1,4 @@
-<div *ngIf="people">
+<!-- <div *ngIf="people">
   <h2>{{people.name | uppercase}} Details</h2>
   <div><span>name: </span>{{people.name}}</div>
 
@@ -8,4 +8,160 @@
      </li>
    </ul>
   <button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
+</div> -->
+
+<div class="container">
+<section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>{{ people.name }}</mat-card-title>
+        <mat-card-content>
+          <div fxLayout="column wrap" fxLayoutGap="40px">
+            <table >
+              <tr>
+                <td align="left"><strong>Birth Year,</strong></td>  <td align="left">{{people.birth_year}}</td>
+              </tr>
+              <tr>
+               <td align="left"><strong>Species,</strong></td>  <td align="left">{{people.birth_year}}</td>
+              </tr>
+              <tr>
+                 <td align="left"><strong>Height,</strong></td>  <td align="left">{{people.height}}</td>
+              </tr>
+               <tr>
+                 <td align="left"><strong>Mass,</strong></td>  <td align="left">{{people.mass}}</td>
+              </tr>
+                <tr>
+                 <td align="left"><strong>Gender,</strong></td>  <td align="left">{{people.gender}}</td>
+               </tr>
+                 <tr>
+                    <td align="left"><strong>Hair Color,</strong></td>  <td align="left">{{people.hair_color}}</td>
+                 </tr>
+                 <tr>
+                   <td align="left"><strong>Skin Color,</strong></td>  <td align="left">{{people.skin_color}}</td>
+                  </tr>
+                  <tr>
+                 <td align="left"><strong>Homeworld,</strong></td>  <td align="left" *ngIf="people.p_homeworld">{{people.p_homeworld.name}}</td>
+                  </tr>
+            </table>
+            <!-- <div fxLayout="row" fxFlex>
+              <div fxFlex><strong>Birth Year,</strong> {{people.birth_year}}</div>
+              <div fxFlex></div>
+            </div>
+
+            <div fxLayout="row" fxFlex>
+              <div fxFlex><strong>Species,</strong> {{people.species}}</div>
+              <div fxFlex></div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Height,</strong> {{people.height}}</div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Mass,</strong></div>
+              <div fxFlex></div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Gender,</strong></div>
+              <div fxFlex>{{people.gender}}</div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Hair Color,</strong></div>
+              <div fxFlex>{{people.hair_color}}</div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Skin Color,</strong></div>
+              <div fxFlex>{{people.skin_color}}</div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Homeworld,</strong></div>
+              <div fxFlex>{{people.species}}</div>
+            </div>
+
+            <ng-template #advancedUser>
+              <div fxLayout="row wrap" fxFlex>
+                <div fxFlex><strong>Type of user:</strong></div>
+                <div fxFlex class="advanced-color">Advanced user</div>
+              </div>
+            </ng-template> -->
+          </div>
+          <div fxLayout="column wrap" fxFlexOffset="60px">
+              <mat-card class="card my-card">
+
+                 <img mat-card-image src="{{people.img_url}}">
+
+               </mat-card>
+            </div>
+        </mat-card-content>
+      </mat-card>
+</section>
 </div>
+
+<div class="container">
+    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Related Films</mat-card-title>
+            <mat-card-content>
+              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of people.p_films">
+                  <mat-card class="card my-card">
+                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.title}}</a></mat-card-subtitle>
+
+                       <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                       <img mat-card-image src="{{film.img_url}}">
+
+                    </mat-card>
+                    <!-- <mat-card class="card my-card">
+                        <mat-card-title><a href="https://www.google.com.sg">{{film.title}}</a></mat-card-title>
+                        <img mat-card-image src="{{film.img_url}}">
+
+                      </mat-card> -->
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </section>
+
+</div>
+
+<div class="container">
+    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Related Vechicles</mat-card-title>
+            <mat-card-content>
+              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let vehicle of people.p_vehicles">
+                  <mat-card class="card my-card">
+                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{vehicle.name}}</a></mat-card-subtitle>
+
+                       <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                       <img mat-card-image src="{{vehicle.img_url}}">
+
+                    </mat-card>
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </section>
+
+</div>
+
+<div class="container">
+    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Related Starships</mat-card-title>
+            <mat-card-content>
+              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let starship of people.p_starships">
+                  <mat-card class="card my-card">
+                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{starship.name}}</a></mat-card-subtitle>
+
+                       <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                       <img mat-card-image src="{{starship.img_url}}">
+
+                    </mat-card>
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </section>
+
+</div>
+

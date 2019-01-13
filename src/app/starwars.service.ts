@@ -33,7 +33,7 @@ export class StarwarsService {
 
 
  /** GET Peoples from the server */
-
+//#region People
 getPeoples (): Observable<List[]> {
   return this.http.get<List[]>(this.starwars_Url + '/people/' )
   .pipe(
@@ -53,11 +53,53 @@ getPeoplesfromURL(API_URL): Observable<List[]> {
   getPeoplebyId(id: number): Observable<People> {
     const url = this.starwars_Url + '/people/' + id;
     console.log(url);
-    return this.http.get<People>(url).pipe(
+    return this.http.get<People>(url)
+    .pipe(
       tap(_ => this.log(`fetched People id=${id}`)),
       catchError(this.handleError<People>(`getPeoplebyId id=${id}`))
     );
   }
+//#endregion
+  getPeopleDescription(peoples) {
+    const people = [];
+    // tslint:disable-next-line:forin
+    for (const p in peoples) {
+      this.http.get<People>(p)
+      .pipe(
+        tap(_ => this.log('fetched getPeopleDescription')),
+        catchError(this.handleError('getPeopleDescription', []))
+        )
+      .subscribe( result => {
+        people.push(result);
+      });
+    }
+    return people;
+  }
+
+
+getPlanetDescription(planet): Observable<Planet> {
+   return this.http.get<Planet>(planet)
+   .pipe(
+    tap(_ => this.log(`fetched getPlanetDescription`)),
+    catchError(this.handleError<Planet>(`getPlanetDescription`))
+  );
+}
+
+
+getFilmsDescription(films): Observable<Film> {
+  return this.http.get<Film>(films)
+  .pipe(
+   tap(_ => this.log(`fetched getFilmsDescription`)),
+   catchError(this.handleError<Film>(`getFilmsDescription`))
+ );
+}
+
+
+
+
+
+
+
 
      /**
    * Handle Http operation that failed.

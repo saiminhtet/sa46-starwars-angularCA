@@ -16,6 +16,7 @@ export class Vehicle {
     films: string[];    // Film
     pilots: string[];   // People
     url: string;
+    img_url: string;
 
     v_films: Film[];
     v_pilots: People[];

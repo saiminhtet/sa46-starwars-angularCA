@@ -15,6 +15,7 @@ export class Species {
   homeworld: string; // Planet
   people: string[];
   films: string[];
+  img_url: string;
 
   s_homeworld: Planet;
   s_people: People[];

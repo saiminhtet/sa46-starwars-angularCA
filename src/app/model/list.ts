@@ -1,4 +1,5 @@
 import { People } from '../model/people';
+
 export class List {
   count: number;
   previous: string;

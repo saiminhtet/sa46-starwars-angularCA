@@ -18,6 +18,7 @@ export class Film {
     planets: string[];  // Planet
     vehicles: string[]; // Vehicle
     url: string;
+    img_url: string;
 
     f_characters: People[];
     f_planets: Planet[];

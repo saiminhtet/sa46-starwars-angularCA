@@ -1,7 +1,8 @@
 import { People } from '../model/people';
 import { Film } from '../model/film';
+
 export class Planet {
-  name: string;
+    name: string;
     diameter: string;
     rotation_period: string;
     orbital_period: string;
@@ -13,6 +14,7 @@ export class Planet {
     residents: string[];    // People
     films: string[];    // Film
     url: string;
+    img_url: string;
 
     p_films: Film[];
     p_residents: People[];

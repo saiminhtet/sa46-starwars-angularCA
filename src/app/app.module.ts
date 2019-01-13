@@ -11,13 +11,34 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailsComponent } from './film-details/film-details.component';
+import { SpeciesComponent } from './species/species.component';
+import { SpeciesDetailsComponent } from './species-details/species-details.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { StarshipsComponent } from './starships/starships.component';
+import { StarshipDetailsComponent } from './starship-details/starship-details.component';
+import { PlanetDetailsComponent } from './planet-details/planet-details.component';
+import { PlanetsComponent } from './planets/planets.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     PeoplesComponent,
-    PeopleDetailsComponent
+    PeopleDetailsComponent,
+    FilmsComponent,
+    FilmDetailsComponent,
+    SpeciesComponent,
+    SpeciesDetailsComponent,
+    VehicleDetailsComponent,
+    VehiclesComponent,
+    StarshipsComponent,
+    StarshipDetailsComponent,
+    PlanetDetailsComponent,
+    PlanetsComponent,
   ],
   imports: [
     BrowserModule,

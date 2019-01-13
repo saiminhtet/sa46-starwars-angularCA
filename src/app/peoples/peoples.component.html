@@ -5,6 +5,8 @@
 </mat-form-field>
 <button button="submit" mat-raised-button color="primary">Search</button>
 <br>
+<mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+
 <button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
   <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
