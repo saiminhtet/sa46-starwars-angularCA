@@ -1,3 +1,27 @@
-<p>
-  species works!
-</p>
+<h2>Species</h2>
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br>
+<mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+
+<button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+  <mat-card class="card-picture" *ngFor="let spec of species" >
+     <mat-card-title (click)="getSpeciesDetails(spec['url'])">{{spec.name}}</mat-card-title>
+    <mat-card-subtitle>Species</mat-card-subtitle>
+
+    <img mat-card-image src="{{spec.img_url}}" (click)="getSpeciesDetails(spec['url'])">
+     <mat-card-actions>
+
+
+    <button (click)="getSpeciesDetails(spec['url'])" mat-button>View</button>
+    <button mat-button>SHARE</button>
+
+  </mat-card-actions>
+  </mat-card>
+
+  </div>

@@ -1,3 +1,106 @@
-<p>
-  starship-details works!
-</p>
+
+<div class="container">
+  <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
+      <mat-card fxFlex="1000px" fxFlex.xs="100%">
+          <mat-card-title>{{ starship.name }}</mat-card-title>
+          <mat-card-content>
+            <div fxLayout="column wrap" fxLayoutGap="40px">
+                <div fxLayout="row wrap" fxFlex>
+
+
+
+              <table >
+                <tr>
+                  <td align="left"><strong>Model,</strong></td>  <td align="left">{{starship.model}}</td>
+                </tr>
+                <tr>
+                 <td align="left"><strong>Manufacture,</strong></td>  <td align="left">{{starship.manufacturer}}</td>
+                </tr>
+                <tr>
+                   <td align="left"><strong>Class,</strong></td>  <td align="left">{{starship.starship_class}}</td>
+                </tr>
+                <tr>
+                  <td align="left"><strong>Cost,</strong></td>  <td align="left">{{starship.cost_in_credits}}</td>
+               </tr>
+               <tr>
+                <td align="left"><strong>Speed,</strong></td>  <td align="left">{{starship.max_atmosphering_speed}}</td>
+             </tr>
+             <tr>
+              <td align="left"><strong>Hyperdrive Rating,</strong></td>  <td align="left">{{starship.hyperdrive_rating}}</td>
+           </tr>
+           <tr>
+            <td align="left"><strong>MGLT,</strong></td>  <td align="left">{{starship.MGLT}}</td>
+         </tr>
+         <tr>
+          <td align="left"><strong>Length,</strong></td>  <td align="left">{{starship.length}}</td>
+       </tr>
+       <tr>
+        <td align="left"><strong>Cargo Capacity,</strong></td>  <td align="left">{{starship.cargo_capacity}}</td>
+     </tr>
+     <tr>
+      <td align="left"><strong>Mimimum Crew,</strong></td>  <td align="left">{{starship.crew}}</td>
+   </tr>
+   <tr>
+    <td align="left"><strong>Passengers,</strong></td>  <td align="left">{{starship.passengers}}</td>
+ </tr>
+                  </table>
+                </div>
+
+            </div>
+            <div fxLayout="column wrap" fxFlexOffset="60px">
+                <mat-card class="card my-card">
+
+                   <img mat-card-image src="{{starship.img_url}}">
+
+                 </mat-card>
+            </div>
+          </mat-card-content>
+        </mat-card>
+  </section>
+  </div>
+
+  <div class="container">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
+          <mat-card fxFlex="500px" fxFlex.xs="100%">
+              <mat-card-title>Related Characters</mat-card-title>
+              <mat-card-content>
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of starship.s_pilots">
+                    <mat-card class="card my-card">
+                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{character.name}}</a></mat-card-subtitle>
+
+                         <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                         <img mat-card-image src="{{character.img_url}}">
+
+                      </mat-card>
+                      <!-- <mat-card class="card my-card">
+                          <mat-card-title><a href="https://www.google.com.sg">{{starship.title}}</a></mat-card-title>
+                          <img mat-card-image src="{{starship.img_url}}">
+
+                        </mat-card> -->
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </section>
+
+  </div>
+
+  <div class="container">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
+          <mat-card fxFlex="500px" fxFlex.xs="100%">
+              <mat-card-title>Related Films</mat-card-title>
+              <mat-card-content>
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of starship.s_films">
+                    <mat-card class="card my-card">
+                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.name}}</a></mat-card-subtitle>
+
+                         <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                         <img mat-card-image src="{{film.img_url}}">
+
+                      </mat-card>
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </section>
+    </div>
+
+

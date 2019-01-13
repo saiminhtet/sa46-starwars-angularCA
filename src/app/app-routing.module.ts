@@ -14,7 +14,7 @@ import { PlanetDetailsComponent } from './planet-details/planet-details.componen
 import { PlanetsComponent } from './planets/planets.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/people', pathMatch: 'full' },
+  { path: '', redirectTo: '/film', pathMatch: 'full' },
   { path: 'people', component: PeoplesComponent },
   { path: 'people/:id', component: PeopleDetailsComponent },
   { path: 'film', component: FilmsComponent },

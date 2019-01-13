@@ -1,3 +1,97 @@
-<p>
-  species-details works!
-</p>
+
+<div class="container">
+  <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="species">
+      <mat-card fxFlex="1000px" fxFlex.xs="100%">
+          <mat-card-title>{{ species.name }}</mat-card-title>
+          <mat-card-content>
+            <div fxLayout="column wrap" fxLayoutGap="40px">
+                <div fxLayout="row wrap" fxFlex>
+
+
+
+              <table >
+                <tr>
+                  <td align="left"><strong>Classification,</strong></td>  <td align="left">{{species.classification}}</td>
+                </tr>
+                <tr>
+                 <td align="left"><strong>Designation,</strong></td>  <td align="left">{{species.language}}</td>
+                </tr>
+                <tr>
+                   <td align="left"><strong>Language,</strong></td>  <td align="left">{{species.producer}}</td>
+                </tr>
+                <tr>
+                  <td align="left"><strong>Avg Lifespan,</strong></td>  <td align="left">{{species.average_lifespan}}</td>
+               </tr>
+               <tr>
+                <td align="left"><strong>Avg Height,</strong></td>  <td align="left">{{species.average_height}}</td>
+             </tr>
+             <tr>
+              <td align="left"><strong>Hair Color(s),</strong></td>  <td align="left">{{species.hair_colors}}</td>
+           </tr>
+           <tr>
+            <td align="left"><strong>Skin Color(s),</strong></td>  <td align="left">{{species.skin_colors}}</td>
+         </tr>
+         <tr>
+          <td align="left"><strong>Eye Color(s),</strong></td>  <td align="left">{{species.eye_colors}}</td>
+       </tr>
+                  </table>
+                </div>
+
+            </div>
+            <div fxLayout="column wrap" fxFlexOffset="60px">
+                <mat-card class="card my-card">
+
+                   <img mat-card-image src="{{species.img_url}}">
+
+                 </mat-card>
+            </div>
+          </mat-card-content>
+        </mat-card>
+  </section>
+  </div>
+
+  <div class="container">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="species">
+          <mat-card fxFlex="500px" fxFlex.xs="100%">
+              <mat-card-title>Related Characters</mat-card-title>
+              <mat-card-content>
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of species.s_people">
+                    <mat-card class="card my-card">
+                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{character.name}}</a></mat-card-subtitle>
+
+                         <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + species.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                         <img mat-card-image src="{{character.img_url}}">
+
+                      </mat-card>
+                      <!-- <mat-card class="card my-card">
+                          <mat-card-title><a href="https://www.google.com.sg">{{species.title}}</a></mat-card-title>
+                          <img mat-card-image src="{{species.img_url}}">
+
+                        </mat-card> -->
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </section>
+
+  </div>
+
+  <div class="container">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="species">
+          <mat-card fxFlex="500px" fxFlex.xs="100%">
+              <mat-card-title>Related Films</mat-card-title>
+              <mat-card-content>
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of species.s_films">
+                    <mat-card class="card my-card">
+                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.name}}</a></mat-card-subtitle>
+
+                         <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + species.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                         <img mat-card-image src="{{film.img_url}}">
+
+                      </mat-card>
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </section>
+    </div>
+
+

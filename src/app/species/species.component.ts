@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { StarwarsService } from '../starwars.service';
+
+import { List } from '../model/list';
+import { Species } from '../model/species';
 
 @Component({
   selector: 'app-species',
@@ -7,9 +13,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpeciesComponent implements OnInit {
 
-  constructor() { }
+  list: List[];
+  species: Species[];
+  loading  =  true;
+  constructor(private starwarsService: StarwarsService,
+    private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getSpecies();
   }
 
+  getSpecies(): void {
+    this.starwarsService.getSpecies()
+    .subscribe(result => {
+      this.list = result;
+      this.species = this.list['results'];
+
+      // tslint:disable-next-line:forin
+      for (const s in this.species) {
+        const id = this.species[s].url.split('/')[5];
+        this.species[s].img_url = './assets/images/species/' + id + '.jpg';
+      }
+
+      this.loading  =  false;
+    });
+  }
+
+  goPrevious() {
+    const previous_url = this.list['previous'];
+      if (previous_url != null) {
+        this.starwarsService.getSpeciesfromURL(previous_url)
+        .subscribe(result => {
+            this.list = result;
+            this.species = this.list['results'];
+              // tslint:disable-next-line:forin
+              for (const s in this.species) {
+                const id = this.species[s].url.split('/')[5];
+                this.species[s].img_url = './assets/images/species/' + id + '.jpg';
+              }
+      });
+    }
+  }
+
+  goNext() {
+    const next_url = this.list['next'];
+      if (next_url != null) {
+        this.starwarsService.getSpeciesfromURL(next_url)
+        .subscribe(result => {
+            this.list = result;
+            this.species = this.list['results'];
+              // tslint:disable-next-line:forin
+              for (const s in this.species) {
+                const id = this.species[s].url.split('/')[5];
+                this.species[s].img_url = './assets/images/species/' + id + '.jpg';
+              }
+      });
+    }
+  }
+
+  getSpeciesDetails(url: string) {
+    const id = url.split('/')[5];
+    this.router.navigate(['/species/', id ]);
+  }
 }

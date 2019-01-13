@@ -17,6 +17,7 @@ export class Starship {
   consumables: string;
   films: string[];    // Film
   pilots: string[];   // People
+  url: string;
   img_url: string;
 
   s_films: Film[];

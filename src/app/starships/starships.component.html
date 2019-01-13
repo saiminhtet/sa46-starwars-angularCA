@@ -1,3 +1,27 @@
-<p>
-  starships works!
-</p>
+<h2>Starships</h2>
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br>
+<mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+
+<button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+  <mat-card class="card-picture" *ngFor="let starship of starships" >
+     <mat-card-title (click)="getStarshipDetails(starship['url'])">{{starship.name}}</mat-card-title>
+    <mat-card-subtitle>Starship</mat-card-subtitle>
+
+    <img mat-card-image src="{{starship.img_url}}" (click)="getStarshipDetails(starship['url'])">
+     <mat-card-actions>
+
+
+    <button (click)="getStarshipDetails(starship['url'])" mat-button>View</button>
+    <button mat-button>SHARE</button>
+
+  </mat-card-actions>
+  </mat-card>
+
+  </div>

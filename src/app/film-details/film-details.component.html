@@ -1,3 +1,143 @@
-<p>
-  film-details works!
-</p>
+
+<div class="container">
+    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+        <mat-card fxFlex="1000px" fxFlex.xs="100%">
+            <mat-card-title>Episode {{film.episode_id}}: {{ film.title }}</mat-card-title>
+            <mat-card-content>
+              <div fxLayout="column wrap" fxLayoutGap="40px">
+                  <div fxLayout="row wrap" fxFlex>
+
+
+
+                <table >
+                  <tr>
+                    <td align="left"><strong>Date Created,</strong></td>  <td align="left">{{film.release_date}}</td>
+                  </tr>
+                  <tr>
+                   <td align="left"><strong>Director,</strong></td>  <td align="left">{{film.director}}</td>
+                  </tr>
+                  <tr>
+                     <td align="left"><strong>Producer(s),</strong></td>  <td align="left">{{film.producer}}</td>
+                  </tr>
+                  <tr>
+                      <td align="top"><strong>Opening Crawl,</strong></td>  <td align="left"><p> {{film.opening_crawl}}</p></td>
+                   </tr>
+                    </table>
+                  </div>
+
+              </div>
+              <div fxLayout="column wrap" fxFlexOffset="60px">
+                  <mat-card class="card my-card">
+
+                     <img mat-card-image src="{{film.img_url}}">
+
+                   </mat-card>
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </section>
+    </div>
+
+    <div class="container">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+            <mat-card fxFlex="500px" fxFlex.xs="100%">
+                <mat-card-title>Related Characters</mat-card-title>
+                <mat-card-content>
+                  <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of film.f_characters">
+                      <mat-card class="card my-card">
+                          <mat-card-subtitle><a  href="https://www.google.com.sg">{{character.name}}</a></mat-card-subtitle>
+
+                           <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                           <img mat-card-image src="{{character.img_url}}">
+
+                        </mat-card>
+                        <!-- <mat-card class="card my-card">
+                            <mat-card-title><a href="https://www.google.com.sg">{{film.title}}</a></mat-card-title>
+                            <img mat-card-image src="{{film.img_url}}">
+
+                          </mat-card> -->
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </section>
+
+    </div>
+
+    <div class="container">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+            <mat-card fxFlex="500px" fxFlex.xs="100%">
+                <mat-card-title>Related Planets</mat-card-title>
+                <mat-card-content>
+                  <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let planet of film.f_planets">
+                      <mat-card class="card my-card">
+                          <mat-card-subtitle><a  href="https://www.google.com.sg">{{planet.name}}</a></mat-card-subtitle>
+
+                           <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                           <img mat-card-image src="{{planet.img_url}}">
+
+                        </mat-card>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </section>
+      </div>
+
+    <div class="container">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+            <mat-card fxFlex="500px" fxFlex.xs="100%">
+                <mat-card-title>Related Vechicles</mat-card-title>
+                <mat-card-content>
+                  <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let vehicle of film.f_vehicles">
+                      <mat-card class="card my-card">
+                          <mat-card-subtitle><a  href="https://www.google.com.sg">{{vehicle.name}}</a></mat-card-subtitle>
+
+                           <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                           <img mat-card-image src="{{vehicle.img_url}}">
+
+                        </mat-card>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </section>
+
+    </div>
+
+    <div class="container">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+            <mat-card fxFlex="500px" fxFlex.xs="100%">
+                <mat-card-title>Related Starships</mat-card-title>
+                <mat-card-content>
+                  <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let starship of film.f_starships">
+                      <mat-card class="card my-card">
+                          <mat-card-subtitle><a  href="https://www.google.com.sg">{{starship.name}}</a></mat-card-subtitle>
+
+                           <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                           <img mat-card-image src="{{starship.img_url}}">
+
+                        </mat-card>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </section>
+
+    </div>
+
+ <div class="container">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+            <mat-card fxFlex="500px" fxFlex.xs="100%">
+                <mat-card-title>Related Species</mat-card-title>
+                <mat-card-content>
+                  <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let species of film.f_species">
+                      <mat-card class="card my-card">
+                          <mat-card-subtitle><a  href="https://www.google.com.sg">{{species.name}}</a></mat-card-subtitle>
+
+                           <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                           <img mat-card-image src="{{species.img_url}}">
+
+                        </mat-card>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </section>
+
+    </div>
