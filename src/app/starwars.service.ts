@@ -146,9 +146,9 @@ getStarshipsfromURL(API_URL): Observable<List[]> {
   }
 //#endregion
 
-//#region Starships
+//#region vehicles
 getVehicles (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/starships/' )
+  return this.http.get<List[]>(this.starwars_Url + '/vehicles/' )
   .pipe(
     tap(_ => this.log('fetched getVehicles')),
     catchError(this.handleError('getVehicles', []))
@@ -164,7 +164,7 @@ getVehiclesfromURL(API_URL): Observable<List[]> {
 }
   /** GET People by id. Will 404 if id not found */
   getVehiclebyId(id: number): Observable<Vehicle> {
-    const url = this.starwars_Url + '/starships/' + id;
+    const url = this.starwars_Url + '/vehicles/' + id;
     console.log(url);
     return this.http.get<Vehicle>(url)
     .pipe(
@@ -176,7 +176,7 @@ getVehiclesfromURL(API_URL): Observable<List[]> {
 
 //#region Planets
 getPlanets (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/starships/' )
+  return this.http.get<List[]>(this.starwars_Url + '/planets/' )
   .pipe(
     tap(_ => this.log('fetched getPlanets')),
     catchError(this.handleError('getPlanets', []))
@@ -192,7 +192,7 @@ getPlanetsfromURL(API_URL): Observable<List[]> {
 }
 
   getPlanetbyId(id: number): Observable<Planet> {
-    const url = this.starwars_Url + '/starships/' + id;
+    const url = this.starwars_Url + '/planets/' + id;
     console.log(url);
     return this.http.get<Planet>(url)
     .pipe(

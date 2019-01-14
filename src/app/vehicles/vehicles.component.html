@@ -1,3 +1,27 @@
-<p>
-  vehicles works!
-</p>
+<h2>Vechicles</h2>
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br>
+<mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+
+<button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+  <mat-card class="card-picture" *ngFor="let vehicle of vehicles" >
+     <mat-card-title (click)="getVehicleDetails(vehicle['url'])">{{vehicle.name}}</mat-card-title>
+    <mat-card-subtitle>vehicle</mat-card-subtitle>
+
+    <img mat-card-image src="{{vehicle.img_url}}" (click)="getVehicleDetails(vehicle['url'])">
+     <mat-card-actions>
+
+
+    <button (click)="getVehicleDetails(vehicle['url'])" mat-button>View</button>
+    <button mat-button>SHARE</button>
+
+  </mat-card-actions>
+  </mat-card>
+
+  </div>
