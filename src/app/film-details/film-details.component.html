@@ -5,7 +5,14 @@
             <mat-card-title>Episode {{film.episode_id}}: {{ film.title }}</mat-card-title>
             <mat-card-content>
               <div fxLayout="column wrap" fxLayoutGap="40px">
-                <div fxLayout="row wrap" fxFlex>
+                    <div fxHide.lg fxLayout="row wrap">
+                            <mat-card class="card my-card">
+
+                                <img mat-card-image src="{{film.img_url}}">
+               
+                            </mat-card>
+                    </div>
+                <div fxLayout="row wrap">
                 <table class="tblMovieDetail" >
                   <tr>
                     <td class="MovieInfo" align="left"><strong>Date Created</strong></td>  <td align="left">{{film.release_date}}</td>
@@ -23,7 +30,7 @@
                   </div>
 
               </div>
-              <div fxLayout="column wrap" fxFlexOffset="60px">
+              <div fxHide.xs fxLayout="column wrap" fxFlexOffset="40px">
                   <mat-card class="card my-card">
 
                      <img mat-card-image src="{{film.img_url}}">

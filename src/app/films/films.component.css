@@ -5,13 +5,16 @@
   flex-wrap: wrap;
   padding: 20px;
   flex-grow: 1; 
+  
+}
+.btnNexPrev{
+justify-content: space-around;
 }
 
 .card {
 display: flex;
 flex-direction: column;
 margin: 10px;
-max-width: 20% !important;
 }
 
 .card .card-content {
