@@ -1,0 +1,30 @@
+<!-- <h2>Films</h2>
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Picture" type="text">
+</mat-form-field>
+<button button="submit" mat-raised-button color="primary">Search</button>
+<br> -->
+<div fxLayout="row" fxLayoutAlign="center">
+</div>
+<!-- <div class="btnNexPrev" fxLayout="row" fxLayoutAlign="center">
+  <button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+</div> -->
+<ngx-spinner></ngx-spinner>
+<div class="work" fxLayout="row"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+  <mat-card class="card-picture card" fxFlex="20%" *ngFor="let film of films" >
+     <mat-card-title (click)="getFilmDetails(film['url'])">{{film.title}}</mat-card-title>
+    <mat-card-subtitle>Film</mat-card-subtitle>
+
+    <img mat-card-image src="{{film.img_url}}" (click)="getFilmDetails(film['url'])">
+     <mat-card-actions>
+
+
+    <button (click)="getFilmDetails(film['url'])" mat-button>View</button>
+    <button mat-button (click)="shareApi()"> <strong>Share</strong></button>
+
+  </mat-card-actions>
+  </mat-card>
+
+  </div>
