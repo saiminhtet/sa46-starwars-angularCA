@@ -10,7 +10,11 @@
           "/index.html",
           "/*.css",
           "/*.js"
+        ],
+        "urls":[
+          "https://fonts.googleapis.com/**"
         ]
+
       }
     }, {
       "name": "assets",
@@ -20,6 +24,18 @@
         "files": [
           "/assets/**"
         ]
+      }
+    }
+  ],
+  "dataGroups":[
+    {
+      "name": "starwars-api",
+      "urls": ["https://swapi.co/api/**"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 30,
+        "maxAge": "1h",
+        "timeout": "5s"
       }
     }
   ]

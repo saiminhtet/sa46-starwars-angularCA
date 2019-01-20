@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -25,9 +26,11 @@ export class FilmDetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
      private location: Location,
-     private http: HttpClient) { }
+     private http: HttpClient,
+     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getFilm();
   }
 
@@ -43,6 +46,7 @@ export class FilmDetailsComponent implements OnInit {
       this.film.f_starships = this.getStarshipsDescription(this.film.starships);
       this.film.f_vehicles = this.getVehicleDescription(this.film.vehicles);
     });
+    this.spinner.hide();
   }
 
   getPeopleDescription(peoples) {
@@ -53,6 +57,7 @@ export class FilmDetailsComponent implements OnInit {
       .subscribe( result => {
         const id = result.url.split('/')[5];
         result.img_url = './assets/images/people/' + id + '.jpg';
+        result.url = '/people/' + id;
         people.push(result);
       });
     }
@@ -67,6 +72,7 @@ export class FilmDetailsComponent implements OnInit {
       .subscribe( result => {
         const species_id = species[s].split('/')[5];
         result.img_url = './assets/images/species/' + species_id + '.jpg';
+        result.url = '/species/' + species_id;
         species_info.push(result);
       });
     }
@@ -81,6 +87,7 @@ export class FilmDetailsComponent implements OnInit {
       .subscribe( result => {
         const vehicle_id = result.url.split('/')[5];
         result.img_url = './assets/images/vehicles/' + vehicle_id + '.jpg';
+        result.url = '/vehicle/' + vehicle_id;
         vehicle.push(result);
       });
     }
@@ -95,6 +102,7 @@ export class FilmDetailsComponent implements OnInit {
       .subscribe( result => {
         const starship_id = starships[s].split('/')[5];
         result.img_url = './assets/images/starships/' + starship_id + '.jpg';
+        result.url = '/starship/' + starship_id;
         starship.push(result);
       });
     }
@@ -109,6 +117,7 @@ export class FilmDetailsComponent implements OnInit {
       .subscribe( result => {
         const id = planets[p].split('/')[5];
         result.img_url = './assets/images/planets/' + id + '.jpg';
+        result.url = '/planet/' + id;
         planet.push(result);
       });
     }
