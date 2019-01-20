@@ -1,7 +1,7 @@
 
 
 <ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#8303e2" type = "line-scale"
+bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#e4e122" type = "line-scale"
 ></ngx-spinner>
 
 <mat-sidenav-container>
@@ -32,7 +32,7 @@ bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#8303e2" type = "line-
               <mat-icon>menu</mat-icon>
             </button>
             <div >
-                <a>
+                <a (click)="getToList('index')">
                    <span class="jedi-font">{{title}}</span>
                 </a>
               </div>
@@ -41,12 +41,12 @@ bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#8303e2" type = "line-
               <!-- The following menu items will be hidden on both SM and XS screen sizes --><span flex></span>
               <button md-offset="7" mat-button [matMenuTriggerFor]="menu" class="menu-btn" >Category</button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>Characters</button>
-              <button mat-menu-item>Films</button>
-              <button mat-menu-item>Species</button>
-              <button mat-menu-item>Starshipes</button>
-              <button mat-menu-item>Vehicles</button>
-              <button mat-menu-item>Planets</button>
+              <button mat-menu-item (click)="getToList('people')">Characters</button>
+              <button mat-menu-item (click)="getToList('film')">Films</button>
+              <button mat-menu-item (click)="getToList('species')">Species</button>
+              <button mat-menu-item (click)="getToList('starship')">Starshipes</button>
+              <button mat-menu-item (click)="getToList('vehicle')">Vehicles</button>
+              <button mat-menu-item (click)="getToList('planet')">Planets</button>
             </mat-menu>
             </div>
           </mat-toolbar-row>
@@ -63,34 +63,36 @@ bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#8303e2" type = "line-
                   <a href="#"mat-list-item>Planets</a>
                 </mat-nav-list>
               </mat-sidenav>
-            
+
+
               <mat-sidenav-content fxFlexFill>
                   <div class="stars"><div class="twinkling"></div></div>
                   <main>
-                    
+
                       <router-outlet></router-outlet>
                       <div class="footer-sec">
                         <footer class="footer">
                             <div class="container">
                               <div class="content has-text-centered">
-                                
+
                                   Made by Noel,Sai,Han
-                                
+
                               </div>
                             </div>
                         </footer>
                       </div>
-                   
+
+
                   </main>
               </mat-sidenav-content>
             </mat-sidenav-container>
-    
-   
-    
-   
 
-    
- 
+
+
+
+
+
+
   </mat-sidenav-content>
-  
+
 </mat-sidenav-container>
