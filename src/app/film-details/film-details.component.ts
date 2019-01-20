@@ -125,6 +125,12 @@ export class FilmDetailsComponent implements OnInit {
     return planet;
   }
 
+  gotoDetails(url: string) {
+    const id = url.split('/')[2];
+    const desc = url.split('/')[1];
+    this.router.navigate(['/' + desc + '/', id ]);
+  }
+
   goBack(): void {
     this.location.back();
   }
