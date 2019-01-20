@@ -6,14 +6,13 @@
 <button button="submit" mat-raised-button color="primary">Search</button>
 <br> -->
 
-<div fxLayout="row" fxLayoutAlign="center">
-</div>
 <!-- <div class="btnNexPrev" fxLayout="row" fxLayoutAlign="center">
   <button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
   <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
 </div> -->
 
 <div class="work" fxLayout="row" fxFlex.xs="100%" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  
   <mat-card class="card-picture card" fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.lg="20%" *ngFor="let film of films" >
      <mat-card-title (click)="getFilmDetails(film['url'])">{{film.title}}</mat-card-title>
     <mat-card-subtitle>Film</mat-card-subtitle>
