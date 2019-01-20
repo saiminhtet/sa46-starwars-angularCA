@@ -59,17 +59,42 @@
   </section>
   </div>
 
-  <div class="container">
-      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
-          <mat-card fxFlex="500px" fxFlex.xs="100%">
+  <div class="container sec-info">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+          <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Characters</mat-card-title>
-              <mat-card-content>
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of starship.s_pilots">
-                    <mat-card class="card my-card">
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let character of film.f_characters">
+                    <mat-card class="card my-card sm-card">
+                        <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
+
+                         <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                         <img mat-card-image class="header-img" src="{{character.img_url}}">
+
+                      </mat-card>
+                      <!-- <mat-card class="card my-card">
+                          <mat-card-title><a href="https://www.google.com.sg">{{film.title}}</a></mat-card-title>
+                          <img mat-card-image src="{{film.img_url}}">
+
+                        </mat-card> -->
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </section>
+
+  </div>
+
+  <div class="container sec-info">
+      <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
+          <mat-card fxFlex="1100px" fxFlex.xs="100%">
+              <mat-card-title>Related Characters</mat-card-title>
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let character of starship.s_pilots">
+                    <mat-card class="card my-card sm-card">
                         <mat-card-subtitle><a  href="https://www.google.com.sg">{{character.name}}</a></mat-card-subtitle>
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image src="{{character.img_url}}">
+                         <img mat-card-image class="header-img" src="{{character.img_url}}">
 
                       </mat-card>
                       <!-- <mat-card class="card my-card">
@@ -84,17 +109,17 @@
 
   </div>
 
-  <div class="container">
+  <div class="container sec-info">
       <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
-          <mat-card fxFlex="500px" fxFlex.xs="100%">
+          <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Films</mat-card-title>
-              <mat-card-content>
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of starship.s_films">
-                    <mat-card class="card my-card">
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let film of starship.s_films">
+                    <mat-card class="card my-card sm-card">
                         <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.name}}</a></mat-card-subtitle>
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image src="{{film.img_url}}">
+                         <img mat-card-image class="header-img" src="{{film.img_url}}">
 
                       </mat-card>
                 </div>
