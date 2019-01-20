@@ -54,17 +54,19 @@
   </section>
   </div>
 
-  <div class="container">
+  <div class="container sec-info">
       <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="vehicle">
-          <mat-card fxFlex="500px" fxFlex.xs="100%">
+          <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Characters</mat-card-title>
+
               <mat-card-content>
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of vehicle.v_pilots">
                     <mat-card class="card my-card">
                         <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
 
+
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + vehicle.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image src="{{character.img_url}}">
+                         <img mat-card-image class="header-img" src="{{character.img_url}}">
 
                       </mat-card>
                       <!-- <mat-card class="card my-card">
@@ -79,17 +81,19 @@
 
   </div>
 
-  <div class="container">
+  <div class="container sec-info">
       <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="vehicle">
-          <mat-card fxFlex="500px" fxFlex.xs="100%">
+          <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Films</mat-card-title>
+
               <mat-card-content>
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of vehicle.v_films">
                     <mat-card class="card my-card">
                         <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
+
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + vehicle.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image src="{{film.img_url}}">
+                         <img mat-card-image class="header-img" src="{{film.img_url}}">
 
                       </mat-card>
                 </div>
