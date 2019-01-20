@@ -51,6 +51,7 @@ export class VehicleDetailsComponent implements OnInit {
       .subscribe( result => {
         const id = result.url.split('/')[5];
         result.img_url = './assets/images/people/' + id + '.jpg';
+        result.url = '/people/' + id;
         people.push(result);
       });
     }
@@ -65,6 +66,7 @@ export class VehicleDetailsComponent implements OnInit {
       .subscribe( result => {
         const film_id = result.url.split('/')[5];
         result.img_url = './assets/images/films/' + film_id + '.jpg';
+        result.url = '/film/' + film_id;
         film.push(result);
       });
     }
