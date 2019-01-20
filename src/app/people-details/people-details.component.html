@@ -9,16 +9,19 @@
    </ul>
   <button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
 </div> -->
-
 <div class=""  fxLayout="column" fxFlex.xs="100%" fxLayoutWrap >
 <div class="container sec-info">
 
-<section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
-    <mat-card fxFlex="1200px" fxFlex.sm="100%" fxFlex.xs="100%">
-        <mat-card-title>{{ people.name }}</mat-card-title>
-        <mat-card-content>
+
+<section fxLayout="row wrap" fxLayoutAlign="center" *ngIf="people">
+    <mat-card fxFlex="1200px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
+      
+        <mat-card-content fxLayoutAlign="center">
+          
             <div fxLayout="column wrap" fxLayoutGap="40px">
-                <div fxHide.lg fxLayout="row wrap">
+                <mat-card-title fxLayoutAlign="center">{{ people.name }}</mat-card-title>
+       
+                <div fxHide.lg fxHide.xl fxLayout="row wrap">
                         <mat-card class="card my-card">
 
                             <img mat-card-image src="{{people.img_url}}">
@@ -26,37 +29,38 @@
                         </mat-card>
                 </div>
           <!--<div fxLayout="column wrap" fxLayoutGap="40px">-->
-          <div fxLayout="row wrap">
+          <div fxLayout="row wrap" fxLayoutAlign="center center">
             <table >
               <tr>
-                <td align="left"><strong>Birth Year,</strong></td>  <td align="left">{{people.birth_year}}</td>
+                <td align="left"><strong>Birth Year</strong></td>  <td align="left">{{people.birth_year}}</td>
               </tr>
               <tr>
-               <td align="left"><strong>Species,</strong></td>  <td align="left">{{people.birth_year}}</td>
+               <td align="left"><strong>Species</strong></td>  <td align="left">{{people.birth_year}}</td>
               </tr>
               <tr>
-                 <td align="left"><strong>Height,</strong></td>  <td align="left">{{people.height}}</td>
+                 <td align="left"><strong>Height</strong></td>  <td align="left">{{people.height}}</td>
               </tr>
                <tr>
-                 <td align="left"><strong>Mass,</strong></td>  <td align="left">{{people.mass}}</td>
+                 <td align="left"><strong>Mass</strong></td>  <td align="left">{{people.mass}}</td>
               </tr>
                 <tr>
-                 <td align="left"><strong>Gender,</strong></td>  <td align="left">{{people.gender}}</td>
+                 <td align="left"><strong>Gender</strong></td>  <td align="left">{{people.gender}}</td>
                </tr>
                  <tr>
-                    <td align="left"><strong>Hair Color,</strong></td>  <td align="left">{{people.hair_color}}</td>
+                    <td align="left"><strong>Hair Color</strong></td>  <td align="left">{{people.hair_color}}</td>
                  </tr>
                  <tr>
-                   <td align="left"><strong>Skin Color,</strong></td>  <td align="left">{{people.skin_color}}</td>
+                   <td align="left"><strong>Skin Color</strong></td>  <td align="left">{{people.skin_color}}</td>
                   </tr>
                   <tr>
-                 <td align="left"><strong>Homeworld,</strong></td>  <td align="left" *ngIf="people.p_homeworld">{{people.p_homeworld.name}}</td>
+                 <td align="left"><strong>Homeworld</strong></td>  <td align="left" *ngIf="people.p_homeworld">{{people.p_homeworld.name}}</td>
                   </tr>
             </table>
             </div>
           </div>
 
-            <div fxHide.xs fxLayout="column wrap" fxFlexOffset="40px">
+            <div fxHide.xs fxHide.sm fxLayout="column wrap" fxFlex="30%" fxFlexOffset="40px">
+
                 <mat-card class="card my-card">
 
                    <img mat-card-image src="{{people.img_url}}">
@@ -72,15 +76,15 @@
 <div class="container">
     <div class="container sec-info">
     <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
-        <mat-card fxFlex="1100px" fxFlex.xs="100%">
+        <mat-card fxFlex="1100px" fxFlex.sm="100%" fxFlex.xs="100%">
             <mat-card-title>Related Films</mat-card-title>
-            <mat-card-content>
-              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of people.p_films">
+            <mat-card-content fxLayout="row wrap">
+              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="30px" *ngFor="let film of people.p_films">
                   <mat-card class="card my-card sm-card">
                       <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
                        <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                       <img mat-card-image src="{{film.img_url}}">
+                       <img class="header-img mat-card-avatar"  mat-card-image src="{{film.img_url}}">
 
                     </mat-card>
                     <!-- <mat-card class="card my-card">
@@ -104,8 +108,8 @@
                   <mat-card class="card my-card sm-card">
                       <mat-card-subtitle><a  href="{{vehicle.url}}">{{vehicle.name}}</a></mat-card-subtitle>
 
+                       <img mat-card-image  class="header-img mat-card-avatar" src="{{vehicle.img_url}}">
 
-                       <img mat-card-image  class="header-img" src="{{vehicle.img_url}}">
 
                     </mat-card>
               </div>
@@ -124,7 +128,7 @@
                       <mat-card-subtitle><a  href="{{starship.url}}">{{starship.name}}</a></mat-card-subtitle>
 
                        <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                       <img mat-card-image class="header-img" src="{{starship.img_url}}">
+                       <img mat-card-image class="header-img mat-card-avatar" src="{{starship.img_url}}">
 
                     </mat-card>
               </div>

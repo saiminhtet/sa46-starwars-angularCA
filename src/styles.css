@@ -21,6 +21,13 @@ body {
   padding-left: 5.2%;
   padding-right: 5.2%;
 }
+.mat-card-avatar {
+  height: 85px !important;
+  width: 85px !important;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
 /* ============================================================================================== 
 SED Innovations
 https://sed.am
