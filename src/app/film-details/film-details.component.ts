@@ -108,7 +108,7 @@ export class FilmDetailsComponent implements OnInit {
       this.http.get<Planet>(planets[p])
       .subscribe( result => {
         const id = planets[p].split('/')[5];
-        result.img_url = './assets/images/vehicles/' + id + '.jpg';
+        result.img_url = './assets/images/planets/' + id + '.jpg';
         planet.push(result);
       });
     }
