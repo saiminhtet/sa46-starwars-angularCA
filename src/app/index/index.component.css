@@ -3,7 +3,7 @@
     right: 16px;
     bottom: 16px;
     left: 16px;
-    
+
 }
 .card__img--top {
     position: relative;
@@ -33,11 +33,11 @@
 
 @font-face{
     font-family: "jedi";
-    src: url("/src/assets/fonts/STJEDISE.TTF");
+    src: url("src/assets/fonts/STJEDISE.TTF");
 }
 .jedi-font {
     font-family: "jedi";
-    src: url("/src/assets/fonts/STJEDISE.TTF");
+    src: url("src/assets/fonts/STJEDISE.TTF");
 }
 .card__img--top {
     height: 60%;
@@ -64,7 +64,7 @@
 }
 .category-last {
     margin-top: -6em;
-   
+
 }
 
 .logo-img
@@ -74,7 +74,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
+
     .logo-img
     {
         width: 290px;
@@ -86,4 +86,4 @@
     }
   }
 
-    
+

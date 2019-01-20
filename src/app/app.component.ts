@@ -19,8 +19,8 @@ export class AppComponent {
   getToList(param: string) {
     this.router.navigate(['/' + param + '/']);
   }
-  goToTop(event) { 
-    window.scroll(0,0);
+  goToTop() {
+    window.scroll(0, 0 );
   }
 }
 
