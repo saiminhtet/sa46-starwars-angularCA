@@ -51,8 +51,9 @@ export class FilmsComponent implements OnInit {
   }
 
   goPrevious() {
+    this.spinner.show();
     const previous_url = this.list['previous'];
-      if (previous_url != null) {
+          if (previous_url != null) {
         this.starwarsService.getFilmsfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
@@ -64,9 +65,12 @@ export class FilmsComponent implements OnInit {
               }
       });
     }
+    this.spinner.hide();
+
   }
 
   goNext() {
+    this.spinner.show();
     const next_url = this.list['next'];
       if (next_url != null) {
         this.starwarsService.getFilmsfromURL(next_url)
@@ -80,6 +84,7 @@ export class FilmsComponent implements OnInit {
               }
       });
     }
+    this.spinner.hide();
   }
 
 

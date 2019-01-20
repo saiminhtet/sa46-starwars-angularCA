@@ -40,3 +40,4 @@ Thumbs.db
 
 #Angular files
 /.history
+/package-lock.json
