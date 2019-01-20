@@ -8,20 +8,20 @@
      </li>
    </ul>
   <button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
-</div> -->  
-                
+</div> -->
+
 <div class=""  fxLayout="column" fxFlex.xs="100%" fxLayoutWrap >
     <div class="container sec-info">
-        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
+        <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
             <mat-card fxFlex="1200px" fxFlex.sm="100%" fxFlex.xs="100%">
                 <mat-card-title>{{ people.name }}</mat-card-title>
                 <mat-card-content>
                   <div fxLayout="column wrap" fxLayoutGap="40px">
                         <div fxHide.lg fxLayout="row wrap">
                                 <mat-card class="card my-card">
-    
+
                                     <img mat-card-image src="{{people.img_url}}">
-                   
+
                                 </mat-card>
                         </div>
                     <div fxLayout="row wrap">
@@ -53,20 +53,20 @@
 
                         </table>
                       </div>
-    
+
                   </div>
                   <div fxHide.xs fxLayout="column wrap" fxFlexOffset="40px">
                       <mat-card class="card my-card">
-    
-                         <img mat-card-image src="{{film.img_url}}">
-    
+
+                         <img mat-card-image src="{{people.img_url}}">
+
                        </mat-card>
                   </div>
                 </mat-card-content>
               </mat-card>
         </section>
         </div>
-<div class="container sec-info">                   
+<div class="container sec-info">
 
 <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
     <mat-card fxFlex="1200px" fxFlex.sm="100%" fxFlex.xs="100%">
@@ -77,7 +77,7 @@
                         <mat-card class="card my-card">
 
                             <img mat-card-image src="{{people.img_url}}">
-           
+
                         </mat-card>
                 </div>
           <!--<div fxLayout="column wrap" fxLayoutGap="40px">-->
@@ -110,7 +110,7 @@
             </table>
             </div>
           </div>
-          
+
             <div fxHide.xs fxLayout="column wrap" fxFlexOffset="40px">
                 <mat-card class="card my-card">
 
@@ -132,7 +132,7 @@
             <mat-card-content>
               <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of people.p_films">
                   <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.title}}</a></mat-card-subtitle>
+                      <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
                        <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
                        <img mat-card-image src="{{film.img_url}}">
@@ -157,9 +157,9 @@
             <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
               <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let vehicle of people.p_vehicles">
                   <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{vehicle.name}}</a></mat-card-subtitle>
+                      <mat-card-subtitle><a  href="{{vehicle.url}}">{{vehicle.name}}</a></mat-card-subtitle>
 
-                     
+
                        <img mat-card-image  class="header-img" src="{{vehicle.img_url}}">
 
                     </mat-card>
@@ -176,7 +176,7 @@
             <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
               <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let starship of people.p_starships">
                   <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle><a  href="https://www.google.com.sg">{{starship.name}}</a></mat-card-subtitle>
+                      <mat-card-subtitle><a  href="{{starship.url}}">{{starship.name}}</a></mat-card-subtitle>
 
                        <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
                        <img mat-card-image class="header-img" src="{{starship.img_url}}">

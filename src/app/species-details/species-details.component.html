@@ -17,7 +17,7 @@
                  <td align="left"><strong>Designation,</strong></td>  <td align="left">{{species.language}}</td>
                 </tr>
                 <tr>
-                   <td align="left"><strong>Language,</strong></td>  <td align="left">{{species.producer}}</td>
+                   <td align="left"><strong>Language,</strong></td>  <td align="left">{{species.language}}</td>
                 </tr>
                 <tr>
                   <td align="left"><strong>Avg Lifespan,</strong></td>  <td align="left">{{species.average_lifespan}}</td>
@@ -57,7 +57,7 @@
               <mat-card-content>
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of species.s_people">
                     <mat-card class="card my-card">
-                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{character.name}}</a></mat-card-subtitle>
+                        <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + species.img_url + ')', 'background-size': 'cover'  }"></div> -->
                          <img mat-card-image src="{{character.img_url}}">
@@ -82,7 +82,7 @@
               <mat-card-content>
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of species.s_films">
                     <mat-card class="card my-card">
-                        <mat-card-subtitle><a  href="https://www.google.com.sg">{{film.name}}</a></mat-card-subtitle>
+                        <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + species.img_url + ')', 'background-size': 'cover'  }"></div> -->
                          <img mat-card-image src="{{film.img_url}}">

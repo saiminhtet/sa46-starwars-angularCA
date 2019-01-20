@@ -65,6 +65,7 @@ export class PeopleDetailsComponent implements OnInit {
       .subscribe( result => {
         const film_id = result.url.split('/')[5];
         result.img_url = './assets/images/films/' + film_id + '.jpg';
+        result.url = '/film/' + film_id;
         film.push(result);
       });
     }
@@ -80,6 +81,7 @@ getSpeciesDescription(species) {
     .subscribe( result => {
       const species_id = species[s].split('/')[5];
       result.img_url = './assets/images/species/' + species_id + '.jpg';
+      result.url = '/species/' + species_id;
       species_info.push(result);
     });
   }
@@ -94,6 +96,7 @@ getVehicleDescription(vehicles) {
     .subscribe( result => {
       const vehicle_id = result.url.split('/')[5];
       result.img_url = './assets/images/vehicles/' + vehicle_id + '.jpg';
+      result.url = '/vehicle/' + vehicle_id;
       vehicle.push(result);
     });
   }
@@ -108,6 +111,7 @@ getStarshipsDescription(starships) {
     .subscribe( result => {
       const starship_id = starships[s].split('/')[5];
       result.img_url = './assets/images/starships/' + starship_id + '.jpg';
+      result.url = '/starship/' + starship_id;
       starship.push(result);
     });
   }
