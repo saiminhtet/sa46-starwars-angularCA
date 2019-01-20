@@ -21,3 +21,22 @@ mat-card-content{
     color: #f44336;
 }
 
+.sec-info
+{
+  margin-bottom: 20px;
+}
+
+.header-img{
+  width: 100px;
+  margin: 4px
+}
+
+.sm-card
+{
+  margin-bottom: 10px;
+}
+
+.MovieInfo
+{
+  width: 15%;
+}
