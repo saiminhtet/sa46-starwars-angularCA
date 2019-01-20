@@ -83,4 +83,10 @@ export class SpeciesDetailsComponent implements OnInit {
     }
     return film;
   }
+
+  gotoDetails(url: string) {
+    const id = url.split('/')[2];
+    const desc = url.split('/')[1];
+    this.router.navigate(['/' + desc + '/', id ]);
+  }
 }

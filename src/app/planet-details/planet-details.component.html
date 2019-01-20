@@ -2,7 +2,7 @@
 <div class="container sec-info">
   <section fxLayout="row wrap" fxLayoutAlign="center" *ngIf="planet">
       <mat-card fxFlex="1200px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
-          
+
           <mat-card-content fxLayoutAlign="center">
 
             <div fxLayout="column wrap" fxLayoutGap="40px">
@@ -15,7 +15,7 @@
                     </mat-card>
                 </div>
 
-            <div fxLayout="row wrap" fxLayoutAlign="center center"> 
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
               <table >
                 <tr>
                   <td align="left"><strong>Population</strong></td>  <td align="left">{{planet.population}}</td>
@@ -65,11 +65,11 @@
               <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="30px" *ngFor="let character of planet.p_residents">
                     <mat-card class="card my-card sm-card">
-                        <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
+                        <mat-card-subtitle (click)="gotoDetails(character.url)"><strong>{{character.name}}</strong></mat-card-subtitle>
 
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + planet.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image class="header-img mat-card-avatar" src="{{character.img_url}}">
+                         <img mat-card-image class="header-img mat-card-avatar" src="{{character.img_url}}" (click)="gotoDetails(character.url)">
 
                       </mat-card>
                       <!-- <mat-card class="card my-card">
@@ -92,11 +92,11 @@
               <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of planet.p_films">
                     <mat-card class="card my-card sm-card">
-                        <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
+                        <mat-card-subtitle (click)="gotoDetails(film.url)"><strong>{{film.title}}</strong></mat-card-subtitle>
 
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + planet.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image class="header-img mat-card-avatar" src="{{film.img_url}}">
+                         <img mat-card-image class="header-img mat-card-avatar" src="{{film.img_url}}" (click)="gotoDetails(film.url)">
 
                       </mat-card>
                 </div>

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -24,9 +25,11 @@ export class PeopleDetailsComponent implements OnInit {
               private router: Router,
               private activatedRoute: ActivatedRoute,
                private location: Location,
-               private http: HttpClient) { }
+               private http: HttpClient,
+               private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getPeople();
   }
 
@@ -43,6 +46,7 @@ export class PeopleDetailsComponent implements OnInit {
         const planet_id = planet.url.split('/')[5];
         planet.img_url = './assets/images/planets/' + planet_id + '.jpg';
         this.people.p_homeworld = planet;
+        this.spinner.hide();
       });
 
       // get film details
@@ -119,5 +123,11 @@ getStarshipsDescription(starships) {
 }
   goBack(): void {
     this.location.back();
+  }
+
+  gotoDetails(url: string) {
+    const id = url.split('/')[2];
+    const desc = url.split('/')[1];
+    this.router.navigate(['/' + desc + '/', id ]);
   }
 }
