@@ -1,48 +1,52 @@
-
-<div class="container">
-  <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="vehicle">
-      <mat-card fxFlex="1000px" fxFlex.xs="100%">
-          <mat-card-title>{{ vehicle.name }}</mat-card-title>
-          <mat-card-content>
+<div class=""  fxLayout="column" fxFlex.xs="100%" fxLayoutWrap >
+<div class="container sec-info">
+  <section fxLayout="row wrap" fxLayoutAlign="center" *ngIf="vehicle">
+      <mat-card fxFlex="1200px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
+          
+          <mat-card-content fxLayoutAlign="center">
             <div fxLayout="column wrap" fxLayoutGap="40px">
-                <div fxLayout="row wrap" fxFlex>
+                <mat-card-title fxLayoutAlign="center">{{ vehicle.name }}</mat-card-title>
+                <div fxHide.lg fxHide.xl fxLayout="row wrap">
+                    <mat-card class="card my-card">
 
+                        <img mat-card-image src="{{vehicle.img_url}}">
 
-
+                    </mat-card>
+                </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
               <table >
                 <tr>
-                  <td align="left"><strong>Model,</strong></td>  <td align="left">{{vehicle.model}}</td>
+                  <td align="left"><strong>Model</strong></td>  <td align="left">{{vehicle.model}}</td>
                 </tr>
                 <tr>
-                 <td align="left"><strong>Manufacture,</strong></td>  <td align="left">{{vehicle.manufacturer}}</td>
+                 <td align="left"><strong>Manufacture</strong></td>  <td align="left">{{vehicle.manufacturer}}</td>
                 </tr>
                 <tr>
-                   <td align="left"><strong>Class,</strong></td>  <td align="left">{{vehicle.vehicle_class}}</td>
+                   <td align="left"><strong>Class</strong></td>  <td align="left">{{vehicle.vehicle_class}}</td>
                 </tr>
                 <tr>
-                  <td align="left"><strong>Cost,</strong></td>  <td align="left">{{vehicle.cost_in_credits}}</td>
+                  <td align="left"><strong>Cost</strong></td>  <td align="left">{{vehicle.cost_in_credits}}</td>
                </tr>
                <tr>
-                <td align="left"><strong>Speed,</strong></td>  <td align="left">{{vehicle.max_atmosphering_speed}}</td>
+                <td align="left"><strong>Speed</strong></td>  <td align="left">{{vehicle.max_atmosphering_speed}}</td>
              </tr>
 
          <tr>
-          <td align="left"><strong>Length,</strong></td>  <td align="left">{{vehicle.length}}</td>
+          <td align="left"><strong>Length</strong></td>  <td align="left">{{vehicle.length}}</td>
        </tr>
        <tr>
-        <td align="left"><strong>Cargo Capacity,</strong></td>  <td align="left">{{vehicle.cargo_capacity}}</td>
+        <td align="left"><strong>Cargo Capacity</strong></td>  <td align="left">{{vehicle.cargo_capacity}}</td>
      </tr>
      <tr>
-      <td align="left"><strong>Mimimum Crew,</strong></td>  <td align="left">{{vehicle.crew}}</td>
+      <td align="left"><strong>Mimimum Crew</strong></td>  <td align="left">{{vehicle.crew}}</td>
    </tr>
    <tr>
-    <td align="left"><strong>Passengers,</strong></td>  <td align="left">{{vehicle.passengers}}</td>
+    <td align="left"><strong>Passengers</strong></td>  <td align="left">{{vehicle.passengers}}</td>
  </tr>
-                  </table>
-                </div>
-
-            </div>
-            <div fxLayout="column wrap" fxFlexOffset="60px">
+  </table>
+  </div>
+    </div>
+            <div fxHide.xs fxHide.sm fxLayout="column wrap" fxFlex="30%" fxFlexOffset="40px">
                 <mat-card class="card my-card">
 
                    <img mat-card-image src="{{vehicle.img_url}}">
@@ -54,14 +58,15 @@
   </section>
   </div>
 
+  <div class="container">
   <div class="container sec-info">
       <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="vehicle">
-          <mat-card fxFlex="1100px" fxFlex.xs="100%">
+          <mat-card fxFlex="1100px" fxFlex.sm="100%" fxFlex.xs="100%">
               <mat-card-title>Related Characters</mat-card-title>
 
-              <mat-card-content>
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of vehicle.v_pilots">
-                    <mat-card class="card my-card">
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="30px" *ngFor="let character of vehicle.v_pilots">
+                    <mat-card class="card my-card sm-card">
                         <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
 
 
@@ -78,7 +83,7 @@
               </mat-card-content>
             </mat-card>
       </section>
-
+    </div>
   </div>
 
   <div class="container sec-info">
@@ -86,9 +91,11 @@
           <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Films</mat-card-title>
 
-              <mat-card-content>
-                <div fxLayout="column wrap" fxFlex.lg="20%" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of vehicle.v_films">
-                    <mat-card class="card my-card">
+
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let film of vehicle.v_films">
+                    <mat-card class="card my-card sm-card">
+
                         <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
 
@@ -101,5 +108,5 @@
             </mat-card>
       </section>
     </div>
-
+  </div>
 

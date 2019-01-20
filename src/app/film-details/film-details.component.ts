@@ -45,8 +45,9 @@ export class FilmDetailsComponent implements OnInit {
       this.film.f_species = this.getSpeciesDescription(this.film.species);
       this.film.f_starships = this.getStarshipsDescription(this.film.starships);
       this.film.f_vehicles = this.getVehicleDescription(this.film.vehicles);
+
+      this.spinner.hide();
     });
-    this.spinner.hide();
   }
 
   getPeopleDescription(peoples) {

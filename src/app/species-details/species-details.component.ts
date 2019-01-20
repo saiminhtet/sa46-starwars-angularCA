@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -25,9 +26,11 @@ export class SpeciesDetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
      private location: Location,
-     private http: HttpClient) { }
+     private http: HttpClient,
+     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getSpecies();
   }
 
@@ -46,6 +49,8 @@ export class SpeciesDetailsComponent implements OnInit {
       });
       this.species.s_people = this.getPeopleDescription(this.species.people);
       this.species.s_films = this.getFilmDescription(this.species.films);
+
+      this.spinner.hide();
     });
   }
 

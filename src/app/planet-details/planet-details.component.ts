@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgNavigatorShareService } from 'ng-navigator-share';
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -18,16 +20,21 @@ import { Vehicle } from '../model/vehicle';
   styleUrls: ['./planet-details.component.css']
 })
 export class PlanetDetailsComponent implements OnInit {
-
+  private ngNavigatorShareService: NgNavigatorShareService;
   planet: Planet;
 
   constructor(private starwarsService: StarwarsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
      private location: Location,
-     private http: HttpClient) { }
+     private http: HttpClient,
+     private spinner: NgxSpinnerService,
+     ngNavigatorShareService: NgNavigatorShareService) {
+      this.ngNavigatorShareService = ngNavigatorShareService;
+     }
 
   ngOnInit() {
+    this.spinner.show();
     this.getPlanet();
   }
 
@@ -39,6 +46,7 @@ export class PlanetDetailsComponent implements OnInit {
       this.planet.img_url = './assets/images/planets/' + id + '.jpg';
       this.planet.p_residents = this.getPeopleDescription(this.planet.residents);
       this.planet.p_films = this.getFilmDescription(this.planet.films);
+      this.spinner.hide();
     });
   }
 

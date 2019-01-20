@@ -8,16 +8,16 @@
 <div fxLayoutAlign="center">
     <h2>Peoples</h2>
 </div>
-<div fxLayout="row" fxLayoutGap="0.5%" class="btn-page">
-  <div> 
-      <button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+<div fxLayout="row" fxLayoutGap="0.5%" class="btn-page" *ngIf="list">
+  <div>
+      <button [disabled]="(list['previous'] == null)"  (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
   </div>
   <div>
-      <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+      <button [disabled]="(list['next'] == null)"  (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
   </div>
 </div>
 <div class="work" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
-    
+
   <mat-card fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.xl="17%" fxFlex.lg="17%"  class="card-picture card" *ngFor="let people of peoples" >
      <mat-card-title (click)="getPeopleDetails(people['url'])">{{people.name}}</mat-card-title>
     <mat-card-subtitle>Character</mat-card-subtitle>
