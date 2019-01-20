@@ -39,3 +39,14 @@ a:active {
   margin: 0;
   width: 85%;
 }
+@font-face{
+  font-family: "jedi";
+  src: url("/src/assets/fonts/STJEDISE.TTF");
+}
+.jedi-font {
+  font-family: "jedi";
+  src: url("/src/assets/fonts/STJEDISE.TTF");
+  color: #ffff00;
+  font-size: 30px;
+}
+

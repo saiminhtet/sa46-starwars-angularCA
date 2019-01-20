@@ -29,6 +29,21 @@ body {
   object-fit: cover;
   margin: auto !important;
 }
+.mat-toolbar.mat-primary {
+  background: #000000;
+  color: #ebff00;
+}
+button {
+  background-color: #1b1b1b !important;
+}
+.mat-button-wrapper{
+  color: #ffff;
+}
+
+.mat-card {
+  background: #fffbfb;
+  color: rgba(0,0,0,.87);
+}
 /* ============================================================================================== 
 SED Innovations
 https://sed.am
@@ -71,7 +86,9 @@ https://mkrtchyan.ga
 
 .stars{
 
-top:4%;
+
+  top: -20px;
+
 
 }
 .stars,.twinkling
@@ -101,8 +118,8 @@ z-index:1;
 animation:move-twink-back 200s linear infinite;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+/* @media (min-width: 320px) and (max-width: 480px) {
   
   .stars{top:1.2%;}
   
-}
+} */
