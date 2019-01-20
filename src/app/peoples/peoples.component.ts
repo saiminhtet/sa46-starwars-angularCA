@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgNavigatorShareService } from 'ng-navigator-share';
 
 import { People } from '../model/people';
 import { List } from '../model/list';
@@ -12,14 +14,19 @@ import { List } from '../model/list';
   styleUrls: ['./peoples.component.css']
 })
 export class PeoplesComponent implements OnInit {
-
+  private ngNavigatorShareService: NgNavigatorShareService;
   peoples: People[];
   list: List[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
-  private router: Router, private activatedRoute: ActivatedRoute) { }
+  private router: Router, private activatedRoute: ActivatedRoute,
+  private spinner: NgxSpinnerService,
+          ngNavigatorShareService: NgNavigatorShareService) {
+            this.ngNavigatorShareService = ngNavigatorShareService;
+           }
 
   ngOnInit() {
+    this.spinner.show();
     this.getPeoples();
   }
 
@@ -38,6 +45,7 @@ export class PeoplesComponent implements OnInit {
               }
               this.loading  =  false;
               console.log('peoples', this.peoples);
+              this.spinner.hide();
       });
   }
 
@@ -58,6 +66,7 @@ export class PeoplesComponent implements OnInit {
 
   goPrevious() {
     const previous_url = this.list['previous'];
+    this.spinner.show();
     console.log(previous_url);
       if (previous_url != null) {
         this.starwarsService.getPeoplesfromURL(previous_url)
@@ -73,12 +82,14 @@ export class PeoplesComponent implements OnInit {
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
               console.log('peoples', this.peoples);
+              this.spinner.hide();
       });
     }
   }
 
   goNext() {
     const next_url = this.list['next'];
+    this.spinner.show();
     console.log(next_url);
       if (next_url != null) {
         this.starwarsService.getPeoplesfromURL(next_url)
@@ -94,6 +105,7 @@ export class PeoplesComponent implements OnInit {
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
               console.log('peoples', this.peoples);
+              this.spinner.hide();
       });
     }
   }
