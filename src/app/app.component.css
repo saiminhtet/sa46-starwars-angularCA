@@ -49,4 +49,12 @@ a:active {
   color: #ffff00;
   font-size: 30px;
 }
+.footer-sec{
+  position: relative;
+  text-align: center;
+  color: #ffff00;
+  padding-bottom: 15px;
+  font-size: 11px;
 
+  margin-bottom: 2%;
+}
