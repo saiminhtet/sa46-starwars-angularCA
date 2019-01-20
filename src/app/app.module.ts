@@ -25,6 +25,7 @@ import { PlanetsComponent } from './planets/planets.component';
 import 'hammerjs';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { environment } from '../environments/environment';
     StarshipDetailsComponent,
     PlanetDetailsComponent,
     PlanetsComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

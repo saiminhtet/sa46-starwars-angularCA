@@ -87,7 +87,7 @@
               <mat-card-title>Related Films</mat-card-title>
 
               <mat-card-content>
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of vehicle.v_films">
+                <div fxLayout="column wrap" fxFlex.lg="20%" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of vehicle.v_films">
                     <mat-card class="card my-card">
                         <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 

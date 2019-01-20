@@ -12,9 +12,11 @@ import { StarshipsComponent } from './starships/starships.component';
 import { StarshipDetailsComponent } from './starship-details/starship-details.component';
 import { PlanetDetailsComponent } from './planet-details/planet-details.component';
 import { PlanetsComponent } from './planets/planets.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/film', pathMatch: 'full' },
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: 'index', component: IndexComponent },
   { path: 'people', component: PeoplesComponent },
   { path: 'people/:id', component: PeopleDetailsComponent },
   { path: 'film', component: FilmsComponent },
@@ -26,7 +28,7 @@ const routes: Routes = [
   { path: 'starship', component: StarshipsComponent },
   { path: 'starship/:id', component: StarshipDetailsComponent },
   { path: 'planet', component: PlanetsComponent },
-  { path: 'planet/:id', component: PlanetDetailsComponent },
+  { path: 'planet/:id', component: PlanetDetailsComponent }
   ];
 
 @NgModule({

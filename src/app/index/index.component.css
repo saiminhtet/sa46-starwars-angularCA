@@ -1,0 +1,89 @@
+.card__img--top span, .card__img--top strong {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    
+}
+.card__img--top {
+    position: relative;
+}
+.tc-red-600 {
+    color: #E5393C!important;
+}
+.tc-yellow-400 {
+    color: #FFEE58!important;
+}
+
+.tc-deep-orange-600 {
+    color: #F4511E!important;
+}
+
+.tc-white-1 {
+    color: #FFF!important;
+}
+
+.tc-blue-200 {
+    color: #90CAF9!important;
+}
+
+.tc-deep-purple-300{
+    color:#9575CD!important
+}
+
+@font-face{
+    font-family: "jedi";
+    src: url("/src/assets/fonts/STJEDISE.TTF");
+}
+.jedi-font {
+    font-family: "jedi";
+    src: url("/src/assets/fonts/STJEDISE.TTF");
+}
+.card__img--top {
+    height: 60%;
+}
+.category-image{
+    width: 100%;
+    height: auto;
+}
+.category-title {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 1em;
+    background-color: rgba(0,0,0,.4);
+}
+
+.content {
+    width: 80%;
+    margin: auto;
+}
+.category {
+    margin-top: 2em;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+}
+.category-last {
+    margin-top: -6em;
+   
+}
+
+.logo-img
+{
+    width: 350px;
+    height: 160px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+    .logo-img
+    {
+        width: 290px;
+        height: 126px;
+        margin-bottom: 33%;
+    }
+    .category {
+        margin-top: -6em;
+    }
+  }
+
+    
