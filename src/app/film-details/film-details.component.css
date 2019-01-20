@@ -4,7 +4,9 @@ mat-card-content, mat-card-title, mat-card-actions {
   text-align: center;
 
 }
-
+.stars{
+  top: 2.5% !important;
+}
 mat-card-content{
   padding-top: 20px;
   padding-bottom: 20px;
