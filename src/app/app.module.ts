@@ -23,6 +23,8 @@ import { StarshipDetailsComponent } from './starship-details/starship-details.co
 import { PlanetDetailsComponent } from './planet-details/planet-details.component';
 import { PlanetsComponent } from './planets/planets.component';
 import 'hammerjs';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import 'hammerjs';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
