@@ -1,16 +1,16 @@
-<h2>Starships</h2>
-
-<mat-form-field class="search-form">
-  <input matInput placeholder="Search Picture" type="text">
-</mat-form-field>
-<button button="submit" mat-raised-button color="primary">Search</button>
-<br>
-<mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
-
-<button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
-  <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
-<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
-  <mat-card class="card-picture" *ngFor="let starship of starships" >
+<div fxLayoutAlign="center">
+    <h2>Starships</h2>
+</div>
+<div fxLayout="row" fxLayoutGap="0.5%" class="btn-page">
+  <div> 
+      <button (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
+  </div>
+  <div>
+      <button (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+  </div>
+</div>
+<div class="work" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+    <mat-card fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.xl="17%" fxFlex.lg="17%"  class="card-picture card" *ngFor="let starship of starships" >
      <mat-card-title (click)="getStarshipDetails(starship['url'])">{{starship.name}}</mat-card-title>
     <mat-card-subtitle>Starship</mat-card-subtitle>
 

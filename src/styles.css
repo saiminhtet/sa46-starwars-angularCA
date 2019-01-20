@@ -14,7 +14,13 @@ body {
   float: right;
 }
 
-
+.btn-page
+{
+  justify-content: space-between;
+  display: flex; 
+  padding-left: 5.2%;
+  padding-right: 5.2%;
+}
 /* ============================================================================================== 
 SED Innovations
 https://sed.am
