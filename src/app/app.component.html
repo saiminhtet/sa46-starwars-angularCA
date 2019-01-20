@@ -55,12 +55,12 @@ bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#e4e122" type = "line-
               <mat-sidenav #sidenav>
                 <mat-nav-list>
                   <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-                  <a href="#" mat-list-item>Characters</a>
-                  <a href="#" mat-list-item>Films</a>
-                  <a href="#" mat-list-item>Species</a>
-                  <a href="#" mat-list-item>Starshipes</a>
-                  <a href="#" mat-list-item>Vehicles</a>
-                  <a href="#"mat-list-item>Planets</a>
+                  <a (click)="getToList('people')" mat-list-item>Characters</a>
+                  <a (click)="getToList('film')" mat-list-item>Films</a>
+                  <a (click)="getToList('species')" mat-list-item>Species</a>
+                  <a (click)="getToList('starship')" mat-list-item>Starshipes</a>
+                  <a (click)="getToList('vehicle')" mat-list-item>Vehicles</a>
+                  <a (click)="getToList('planet')" mat-list-item>Planets</a>
                 </mat-nav-list>
               </mat-sidenav>
 
