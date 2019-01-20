@@ -1,53 +1,58 @@
-
-<div class="container">
-  <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="starship">
-      <mat-card fxFlex="1000px" fxFlex.xs="100%">
-          <mat-card-title>{{ starship.name }}</mat-card-title>
-          <mat-card-content>
+<div class=""  fxLayout="column" fxFlex.xs="100%" fxLayoutWrap >
+<div class="container sec-info">
+  <section fxLayout="row wrap" fxLayoutAlign="center" *ngIf="starship">
+      <mat-card fxFlex="1200px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
+          
+          <mat-card-content fxLayoutAlign="center">
             <div fxLayout="column wrap" fxLayoutGap="40px">
-                <div fxLayout="row wrap" fxFlex>
+                    <mat-card-title fxLayoutAlign="center">{{ starship.name }}</mat-card-title>
+                <div fxHide.lg fxHide.xl fxLayout="row wrap" >
+                        <mat-card class="card my-card">
 
+                            <img mat-card-image src="{{starship.img_url}}">
+    
+                        </mat-card>
 
-
+                </div>
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
               <table >
                 <tr>
-                  <td align="left"><strong>Model,</strong></td>  <td align="left">{{starship.model}}</td>
+                  <td align="left"><strong>Model</strong></td>  <td align="left">{{starship.model}}</td>
                 </tr>
                 <tr>
-                 <td align="left"><strong>Manufacture,</strong></td>  <td align="left">{{starship.manufacturer}}</td>
+                 <td align="left"><strong>Manufacture</strong></td>  <td align="left">{{starship.manufacturer}}</td>
                 </tr>
                 <tr>
-                   <td align="left"><strong>Class,</strong></td>  <td align="left">{{starship.starship_class}}</td>
+                   <td align="left"><strong>Class</strong></td>  <td align="left">{{starship.starship_class}}</td>
                 </tr>
                 <tr>
-                  <td align="left"><strong>Cost,</strong></td>  <td align="left">{{starship.cost_in_credits}}</td>
+                  <td align="left"><strong>Cost</strong></td>  <td align="left">{{starship.cost_in_credits}}</td>
                </tr>
                <tr>
-                <td align="left"><strong>Speed,</strong></td>  <td align="left">{{starship.max_atmosphering_speed}}</td>
+                <td align="left"><strong>Speed</strong></td>  <td align="left">{{starship.max_atmosphering_speed}}</td>
              </tr>
              <tr>
-              <td align="left"><strong>Hyperdrive Rating,</strong></td>  <td align="left">{{starship.hyperdrive_rating}}</td>
+              <td align="left"><strong>Hyperdrive Rating</strong></td>  <td align="left">{{starship.hyperdrive_rating}}</td>
            </tr>
            <tr>
-            <td align="left"><strong>MGLT,</strong></td>  <td align="left">{{starship.MGLT}}</td>
+            <td align="left"><strong>MGLT</strong></td>  <td align="left">{{starship.MGLT}}</td>
          </tr>
          <tr>
-          <td align="left"><strong>Length,</strong></td>  <td align="left">{{starship.length}}</td>
+          <td align="left"><strong>Length</strong></td>  <td align="left">{{starship.length}}</td>
        </tr>
        <tr>
-        <td align="left"><strong>Cargo Capacity,</strong></td>  <td align="left">{{starship.cargo_capacity}}</td>
+        <td align="left"><strong>Cargo Capacity</strong></td>  <td align="left">{{starship.cargo_capacity}}</td>
      </tr>
      <tr>
-      <td align="left"><strong>Mimimum Crew,</strong></td>  <td align="left">{{starship.crew}}</td>
+      <td align="left"><strong>Mimimum Crew</strong></td>  <td align="left">{{starship.crew}}</td>
    </tr>
    <tr>
-    <td align="left"><strong>Passengers,</strong></td>  <td align="left">{{starship.passengers}}</td>
+    <td align="left"><strong>Passengers</strong></td>  <td align="left">{{starship.passengers}}</td>
  </tr>
-                  </table>
-                </div>
-
-            </div>
-            <div fxLayout="column wrap" fxFlexOffset="60px">
+    </table>
+    </div>
+</div>
+            <div fxHide.xs fxHide.sm fxLayout="column wrap" fxFlex="30%" fxFlexOffset="40px">
                 <mat-card class="card my-card">
 
                    <img mat-card-image src="{{starship.img_url}}">
@@ -59,17 +64,18 @@
   </section>
   </div>
 
+  <div class="container">
   <div class="container sec-info">
       <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="film">
-          <mat-card fxFlex="1100px" fxFlex.xs="100%">
+          <mat-card fxFlex="1100px" fxFlex.sm="100%" fxFlex.xs="100%">
               <mat-card-title>Related Characters</mat-card-title>
               <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let character of film.f_characters">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="10px" *ngFor="let character of film.f_characters">
                     <mat-card class="card my-card sm-card">
                         <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image class="header-img" src="{{character.img_url}}">
+                         <img mat-card-image class="header-img mat-card-avatar" src="{{character.img_url}}">
 
                       </mat-card>
                       <!-- <mat-card class="card my-card">
@@ -81,7 +87,7 @@
               </mat-card-content>
             </mat-card>
       </section>
-
+    </div>
   </div>
 
   <div class="container sec-info">
@@ -89,14 +95,14 @@
           <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Characters</mat-card-title>
 
-              <mat-card-content>
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
                 <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let character of starship.s_pilots">
                     <mat-card class="card my-card">
                         <mat-card-subtitle><a  href="{{character.url}}">{{character.name}}</a></mat-card-subtitle>
 
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image class="header-img" src="{{character.img_url}}">
+                         <img mat-card-image class="header-img mat-card-avatar" src="{{character.img_url}}">
 
                       </mat-card>
                       <!-- <mat-card class="card my-card">
@@ -116,14 +122,14 @@
           <mat-card fxFlex="1100px" fxFlex.xs="100%">
               <mat-card-title>Related Films</mat-card-title>
 
-              <mat-card-content>
-                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="30px" *ngFor="let film of starship.s_films">
-                    <mat-card class="card my-card">
+              <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+                <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let film of starship.s_films">
+                    <mat-card class="card my-card sm-card">
                         <mat-card-subtitle><a  href="{{film.url}}">{{film.title}}</a></mat-card-subtitle>
 
 
                          <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + starship.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                         <img mat-card-image class="header-img" src="{{film.img_url}}">
+                         <img mat-card-image class="header-img mat-card-avatar" src="{{film.img_url}}">
 
                       </mat-card>
                 </div>
@@ -131,5 +137,5 @@
             </mat-card>
       </section>
     </div>
-
+</div>
 
