@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -25,9 +26,11 @@ export class StarshipDetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
      private location: Location,
-     private http: HttpClient) { }
+     private http: HttpClient,
+     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getStarship();
   }
 
@@ -39,6 +42,7 @@ export class StarshipDetailsComponent implements OnInit {
       this.starship.img_url = './assets/images/starships/' + id + '.jpg';
       this.starship.s_pilots = this.getPeopleDescription(this.starship.pilots);
       this.starship.s_films = this.getFilmDescription(this.starship.films);
+      this.spinner.hide();
     });
   }
 

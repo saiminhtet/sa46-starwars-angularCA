@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgNavigatorShareService } from 'ng-navigator-share';
 
 import { List } from '../model/list';
 import { Planet } from '../model/planet';
@@ -11,15 +13,20 @@ import { Planet } from '../model/planet';
   styleUrls: ['./planets.component.css']
 })
 export class PlanetsComponent implements OnInit {
-
+  private ngNavigatorShareService: NgNavigatorShareService;
   list: List[];
   planets: Planet[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
-    private router: Router, private activatedRoute: ActivatedRoute) { }
+    private router: Router, private activatedRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService,
+          ngNavigatorShareService: NgNavigatorShareService) {
+            this.ngNavigatorShareService = ngNavigatorShareService;
+          }
 
 
   ngOnInit() {
+    this.spinner.show();
     this.getPlanets();
   }
 
@@ -35,12 +42,13 @@ export class PlanetsComponent implements OnInit {
         this.planets[p].img_url = './assets/images/planets/' + id + '.jpg';
       }
 
-      this.loading  =  false;
+      this.spinner.hide();
     });
   }
 
   goPrevious() {
     const previous_url = this.list['previous'];
+    this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getPlanetsfromURL(previous_url)
         .subscribe(result => {
@@ -52,12 +60,14 @@ export class PlanetsComponent implements OnInit {
               const id = this.planets[p].url.split('/')[5];
               this.planets[p].img_url = './assets/images/planets/' + id + '.jpg';
             }
+            this.spinner.hide();
         });
     }
   }
 
   goNext() {
     const next_url = this.list['next'];
+    this.spinner.show();
       if (next_url != null) {
         this.starwarsService.getPlanetsfromURL(next_url)
         .subscribe(result => {
@@ -69,6 +79,7 @@ export class PlanetsComponent implements OnInit {
               const id = this.planets[p].url.split('/')[5];
               this.planets[p].img_url = './assets/images/planets/' + id + '.jpg';
             }
+            this.spinner.hide();
         });
     }
   }

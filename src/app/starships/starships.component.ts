@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgNavigatorShareService } from 'ng-navigator-share';
 
 import { List } from '../model/list';
 import { Starship } from '../model/starship';
@@ -12,15 +14,21 @@ import { Starship } from '../model/starship';
   styleUrls: ['./starships.component.css']
 })
 export class StarshipsComponent implements OnInit {
-
+  private ngNavigatorShareService: NgNavigatorShareService;
   list: List[];
   starships: Starship[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
-    private router: Router, private activatedRoute: ActivatedRoute) { }
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private spinner: NgxSpinnerService,
+    ngNavigatorShareService: NgNavigatorShareService) {
+      this.ngNavigatorShareService = ngNavigatorShareService;
+     }
 
 
   ngOnInit() {
+    this.spinner.show();
     this.getStarships();
   }
 
@@ -36,12 +44,13 @@ export class StarshipsComponent implements OnInit {
         this.starships[s].img_url = './assets/images/starships/' + id + '.jpg';
       }
 
-      this.loading  =  false;
+      this.spinner.hide();
     });
   }
 
   goPrevious() {
     const previous_url = this.list['previous'];
+    this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getStarshipsfromURL(previous_url)
         .subscribe(result => {
@@ -52,12 +61,14 @@ export class StarshipsComponent implements OnInit {
                 const id = this.starships[s].url.split('/')[5];
                 this.starships[s].img_url = './assets/images/starships/' + id + '.jpg';
               }
+              this.spinner.hide();
       });
     }
   }
 
   goNext() {
     const next_url = this.list['next'];
+    this.spinner.show();
       if (next_url != null) {
         this.starwarsService.getFilmsfromURL(next_url)
         .subscribe(result => {
@@ -68,6 +79,7 @@ export class StarshipsComponent implements OnInit {
                 const id = this.starships[s].url.split('/')[5];
                 this.starships[s].img_url = './assets/images/starships/' + id + '.jpg';
               }
+              this.spinner.hide();
       });
     }
   }

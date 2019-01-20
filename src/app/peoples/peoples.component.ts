@@ -17,7 +17,7 @@ export class PeoplesComponent implements OnInit {
   private ngNavigatorShareService: NgNavigatorShareService;
   peoples: People[];
   list: List[];
-  loading  =  true;
+
   constructor(private starwarsService: StarwarsService,
   private router: Router, private activatedRoute: ActivatedRoute,
   private spinner: NgxSpinnerService,
@@ -43,7 +43,7 @@ export class PeoplesComponent implements OnInit {
                 console.log('id', people_id);
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
-              this.loading  =  false;
+
               console.log('peoples', this.peoples);
               this.spinner.hide();
       });
