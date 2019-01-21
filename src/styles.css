@@ -17,7 +17,7 @@ body {
 .btn-page
 {
   justify-content: space-between;
-  display: flex; 
+  display: flex;
   padding-left: 5.2%;
   padding-right: 5.2%;
 }
@@ -47,7 +47,7 @@ button {
 .mat-menu-item{
   background: #fffbfb !important;
 }
-/* ============================================================================================== 
+/* ==============================================================================================
 SED Innovations
 https://sed.am
 https://mkrtchyan.ga
@@ -106,12 +106,12 @@ display:block;
 }
 
 .stars {
-background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+background:#000 url("src/assets/images/stars.png") repeat top center;
 z-index:0;
 }
 
 .twinkling{
-background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+background:transparent url("src/assets/images/twinkling.png") repeat top center;
 z-index:1;
 
 -moz-animation:move-twink-back 200s linear infinite;
@@ -122,7 +122,7 @@ animation:move-twink-back 200s linear infinite;
 }
 
 /* @media (min-width: 320px) and (max-width: 480px) {
-  
+
   .stars{top:1.2%;}
-  
+
 } */
