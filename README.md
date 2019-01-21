@@ -2,7 +2,7 @@
 
 ![Star Wars App Website](https://saiminhtet.github.io/assets/images/starwarshome.png)
 
-**This is the repository for the (semi) PWA application with Angular in fulfillment of [NUS ISS](https://www.iss.nus.edu.sg/) GDipSA46 *Angular Enrichment*.**
+**This is the repository for the (semi) PWA application with Angular in fulfillment of [NUS ISS](https://www.iss.nus.edu.sg/) GDipSA46 *Angular Course Assignment*.**
     
 --------------------------------------------------
 
