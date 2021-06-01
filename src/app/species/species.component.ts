@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { NgNavigatorShareService } from 'ng-navigator-share';
 
 import { List } from '../model/list';
 import { Species } from '../model/species';
@@ -14,16 +13,13 @@ import { Species } from '../model/species';
   styleUrls: ['./species.component.css']
 })
 export class SpeciesComponent implements OnInit {
-  private ngNavigatorShareService: NgNavigatorShareService;
+  
   list: List[];
   species: Species[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router, private activatedRoute: ActivatedRoute,
-    private spinner: NgxSpinnerService,
-    ngNavigatorShareService: NgNavigatorShareService) {
-      this.ngNavigatorShareService = ngNavigatorShareService;
-     }
+    private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     this.spinner.show();

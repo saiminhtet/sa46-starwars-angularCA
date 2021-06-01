@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { NgNavigatorShareService } from 'ng-navigator-share';
+
 
 import { People } from '../model/people';
 import { List } from '../model/list';
@@ -14,16 +14,13 @@ import { List } from '../model/list';
   styleUrls: ['./peoples.component.css']
 })
 export class PeoplesComponent implements OnInit {
-  private ngNavigatorShareService: NgNavigatorShareService;
+
   peoples: People[];
   list: List[];
 
   constructor(private starwarsService: StarwarsService,
   private router: Router, private activatedRoute: ActivatedRoute,
-  private spinner: NgxSpinnerService,
-          ngNavigatorShareService: NgNavigatorShareService) {
-            this.ngNavigatorShareService = ngNavigatorShareService;
-           }
+  private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.spinner.show();
@@ -33,18 +30,18 @@ export class PeoplesComponent implements OnInit {
   getPeoples(): void {
     this.starwarsService.getPeoples()
     .subscribe(result => {
-          console.log('list', result);
+          // console.log('list', result);
              this.list = result;
             this.peoples = this.list['results'];
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];
-                console.log('people', this.peoples[people].name);
-                console.log('id', people_id);
+                // console.log('people', this.peoples[people].name);
+                // console.log('id', people_id);
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
 
-              console.log('peoples', this.peoples);
+              // console.log('peoples', this.peoples);
               this.spinner.hide();
       });
   }
@@ -67,21 +64,21 @@ export class PeoplesComponent implements OnInit {
   goPrevious() {
     const previous_url = this.list['previous'];
     this.spinner.show();
-    console.log(previous_url);
+    // console.log(previous_url);
       if (previous_url != null) {
         this.starwarsService.getPeoplesfromURL(previous_url)
         .subscribe(result => {
-          console.log('list', result);
+          // console.log('list', result);
             this.list = result;
             this.peoples = this.list['results'];
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];
-                console.log('people', this.peoples[people].name);
-                console.log('id', people_id);
+                // console.log('people', this.peoples[people].name);
+                // console.log('id', people_id);
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
-              console.log('peoples', this.peoples);
+              // console.log('peoples', this.peoples);
               this.spinner.hide();
       });
     }
@@ -90,21 +87,21 @@ export class PeoplesComponent implements OnInit {
   goNext() {
     const next_url = this.list['next'];
     this.spinner.show();
-    console.log(next_url);
+    // console.log(next_url);
       if (next_url != null) {
         this.starwarsService.getPeoplesfromURL(next_url)
         .subscribe(result => {
-          console.log('list', result);
+          // console.log('list', result);
             this.list = result;
             this.peoples = this.list['results'];
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];
-                console.log('people', this.peoples[people].name);
-                console.log('id', people_id);
+                // console.log('people', this.peoples[people].name);
+                // console.log('id', people_id);
                 this.peoples[people].img_url = './assets/images/people/' + people_id + '.jpg';
               }
-              console.log('peoples', this.peoples);
+              // console.log('peoples', this.peoples);
               this.spinner.hide();
       });
     }

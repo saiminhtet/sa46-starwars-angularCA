@@ -57,7 +57,7 @@ export class PeopleDetailsComponent implements OnInit {
        this.people.p_vehicles = this.getVehicleDescription(this.people.vehicles);
        // get starship details
        this.people.p_starships = this.getStarshipsDescription(this.people.starships);
-      console.log('peoples', this.people);
+      // console.log('peoples', this.people);
     });
   }
 

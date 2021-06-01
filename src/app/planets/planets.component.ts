@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { NgNavigatorShareService } from 'ng-navigator-share';
+
 
 import { List } from '../model/list';
 import { Planet } from '../model/planet';
@@ -12,17 +12,13 @@ import { Planet } from '../model/planet';
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.css']
 })
-export class PlanetsComponent implements OnInit {
-  private ngNavigatorShareService: NgNavigatorShareService;
+export class PlanetsComponent implements OnInit {  
   list: List[];
   planets: Planet[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router, private activatedRoute: ActivatedRoute,
-    private spinner: NgxSpinnerService,
-          ngNavigatorShareService: NgNavigatorShareService) {
-            this.ngNavigatorShareService = ngNavigatorShareService;
-          }
+    private spinner: NgxSpinnerService) { }
 
 
   ngOnInit() {

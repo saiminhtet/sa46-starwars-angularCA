@@ -24,7 +24,7 @@ const httpOptions = {
 })
 export class StarwarsService {
 
-  private starwars_Url = 'https://swapi.co/api';  // URL to web api
+  private starwars_Url = 'https://swapi.dev/api';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -53,7 +53,7 @@ getPeoplesfromURL(API_URL): Observable<List[]> {
   /** GET People by id. Will 404 if id not found */
   getPeoplebyId(id: number): Observable<People> {
     const url = this.starwars_Url + '/people/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<People>(url)
     .pipe(
       tap(_ => this.log(`fetched People id=${id}`)),
@@ -81,7 +81,7 @@ getFilmsfromURL(API_URL): Observable<List[]> {
   /** GET People by id. Will 404 if id not found */
   getFilmbyId(id: number): Observable<Film> {
     const url = this.starwars_Url + '/films/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<Film>(url)
     .pipe(
       tap(_ => this.log(`fetched Film id=${id}`)),
@@ -109,7 +109,7 @@ getSpeciesfromURL(API_URL): Observable<List[]> {
   /** GET People by id. Will 404 if id not found */
   getSpeciesbyId(id: number): Observable<Species> {
     const url = this.starwars_Url + '/species/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<Species>(url)
     .pipe(
       tap(_ => this.log(`fetched Species id=${id}`)),
@@ -137,7 +137,7 @@ getStarshipsfromURL(API_URL): Observable<List[]> {
   /** GET People by id. Will 404 if id not found */
   getStarshipbyId(id: number): Observable<Starship> {
     const url = this.starwars_Url + '/starships/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<Starship>(url)
     .pipe(
       tap(_ => this.log(`fetched Starship id=${id}`)),
@@ -165,7 +165,7 @@ getVehiclesfromURL(API_URL): Observable<List[]> {
   /** GET People by id. Will 404 if id not found */
   getVehiclebyId(id: number): Observable<Vehicle> {
     const url = this.starwars_Url + '/vehicles/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<Vehicle>(url)
     .pipe(
       tap(_ => this.log(`fetched Vehicle id=${id}`)),
@@ -193,7 +193,7 @@ getPlanetsfromURL(API_URL): Observable<List[]> {
 
   getPlanetbyId(id: number): Observable<Planet> {
     const url = this.starwars_Url + '/planets/' + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get<Planet>(url)
     .pipe(
       tap(_ => this.log(`fetched Planet id=${id}`)),

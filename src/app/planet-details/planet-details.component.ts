@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { StarwarsService } from '../starwars.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { NgNavigatorShareService } from 'ng-navigator-share';
+
 
 import { People } from '../model/people';
 import { Planet } from '../model/planet';
@@ -20,7 +20,7 @@ import { Vehicle } from '../model/vehicle';
   styleUrls: ['./planet-details.component.css']
 })
 export class PlanetDetailsComponent implements OnInit {
-  private ngNavigatorShareService: NgNavigatorShareService;
+ 
   planet: Planet;
 
   constructor(private starwarsService: StarwarsService,
@@ -28,10 +28,7 @@ export class PlanetDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
      private location: Location,
      private http: HttpClient,
-     private spinner: NgxSpinnerService,
-     ngNavigatorShareService: NgNavigatorShareService) {
-      this.ngNavigatorShareService = ngNavigatorShareService;
-     }
+     private spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     this.spinner.show();

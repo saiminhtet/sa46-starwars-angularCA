@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
-import { NgNavigatorShareService } from 'ng-navigator-share';
+// import { NgNavigatorShareService } from 'ng-navigator-share';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { List } from '../model/list';
@@ -15,18 +15,22 @@ import { Film } from '../model/film';
 })
 export class FilmsComponent implements OnInit {
 
-  private ngNavigatorShareService: NgNavigatorShareService;
+  // private ngNavigatorShareService: NgNavigatorShareService;
 
   list: List[];
   films: Film[];
 
-  constructor(private starwarsService: StarwarsService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private spinner: NgxSpinnerService,
-              ngNavigatorShareService: NgNavigatorShareService) {
-      this.ngNavigatorShareService = ngNavigatorShareService;
-    }
+  // constructor(private starwarsService: StarwarsService,
+  //             private router: Router,
+  //             private activatedRoute: ActivatedRoute,
+  //             private spinner: NgxSpinnerService,
+  //             ngNavigatorShareService: NgNavigatorShareService) {
+  //     this.ngNavigatorShareService = ngNavigatorShareService;
+  //   }
+    constructor(private starwarsService: StarwarsService,
+      private router: Router,
+      private activatedRoute: ActivatedRoute,
+      private spinner: NgxSpinnerService) {} 
 
   ngOnInit() {
     this.spinner.show();
@@ -93,16 +97,16 @@ export class FilmsComponent implements OnInit {
     this.router.navigate(['/film/', id ]);
   }
 
-  async shareApi() {
-    try {
-      const sharedResponse = await this.ngNavigatorShareService.share({
-        title: '`Web Articles and Tutorials',
-        text: 'Check out my blog — its worth looking.',
-        url: 'www.codershood.info'
-      });
-      console.log(sharedResponse);
-    } catch ( error) {
-      console.log('You app is not shared, reason: ', error);
-    }
-  }
+  // async shareApi() {
+  //   try {
+  //     const sharedResponse = await this.ngNavigatorShareService.share({
+  //       title: '`Web Articles and Tutorials',
+  //       text: 'Check out my blog — its worth looking.',
+  //       url: 'www.codershood.info'
+  //     });
+  //     console.log(sharedResponse);
+  //   } catch ( error) {
+  //     console.log('You app is not shared, reason: ', error);
+  //   }
+  //}
 }
