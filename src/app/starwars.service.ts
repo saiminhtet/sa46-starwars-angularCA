@@ -35,19 +35,19 @@ export class StarwarsService {
 
 //#region People
  /** GET Peoples from the server */
-getPeoples (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/people/' )
+getPeoples (): Observable<List<People>> {
+  return this.http.get<List<People>>(this.starwars_Url + '/people/' )
   .pipe(
     tap(_ => this.log('fetched peoples')),
-    catchError(this.handleError('getPeoples', []))
+    catchError(this.handleError<List<People>>('getPeoples'))
     );
 }
 
-getPeoplesfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getPeoplesfromURL(API_URL: string): Observable<List<People>> {
+  return this.http.get<List<People>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched peoples')),
-    catchError(this.handleError('getPeoples', []))
+    catchError(this.handleError<List<People>>('getPeoples'))
     );
 }
   /** GET People by id. Will 404 if id not found */
@@ -63,19 +63,19 @@ getPeoplesfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region Film
-getFilms (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/films/' )
+getFilms (): Observable<List<Film>> {
+  return this.http.get<List<Film>>(this.starwars_Url + '/films/' )
   .pipe(
     tap(_ => this.log('fetched getFilms')),
-    catchError(this.handleError('getFilms', []))
+    catchError(this.handleError<List<Film>>('getFilms'))
     );
 }
 
-getFilmsfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getFilmsfromURL(API_URL: string): Observable<List<Film>> {
+  return this.http.get<List<Film>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched getFilmsfromURL')),
-    catchError(this.handleError('getFilmsfromURL', []))
+    catchError(this.handleError<List<Film>>('getFilmsfromURL'))
     );
 }
   /** GET People by id. Will 404 if id not found */
@@ -91,19 +91,19 @@ getFilmsfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region Species
-getSpecies (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/species/' )
+getSpecies (): Observable<List<Species>> {
+  return this.http.get<List<Species>>(this.starwars_Url + '/species/' )
   .pipe(
     tap(_ => this.log('fetched getSpecies')),
-    catchError(this.handleError('getSpecies', []))
+    catchError(this.handleError<List<Species>>('getSpecies'))
     );
 }
 
-getSpeciesfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getSpeciesfromURL(API_URL: string): Observable<List<Species>> {
+  return this.http.get<List<Species>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched getSpeciesfromURL')),
-    catchError(this.handleError('getSpeciesfromURL', []))
+    catchError(this.handleError<List<Species>>('getSpeciesfromURL'))
     );
 }
   /** GET People by id. Will 404 if id not found */
@@ -119,19 +119,19 @@ getSpeciesfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region Starships
-getStarships (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/starships/' )
+getStarships (): Observable<List<Starship>> {
+  return this.http.get<List<Starship>>(this.starwars_Url + '/starships/' )
   .pipe(
     tap(_ => this.log('fetched getStarships')),
-    catchError(this.handleError('getStarships', []))
+    catchError(this.handleError<List<Starship>>('getStarships'))
     );
 }
 
-getStarshipsfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getStarshipsfromURL(API_URL: string): Observable<List<Starship>> {
+  return this.http.get<List<Starship>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched getStarshipsfromURL')),
-    catchError(this.handleError('getStarshipsfromURL', []))
+    catchError(this.handleError<List<Starship>>('getStarshipsfromURL'))
     );
 }
   /** GET People by id. Will 404 if id not found */
@@ -147,19 +147,19 @@ getStarshipsfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region vehicles
-getVehicles (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/vehicles/' )
+getVehicles (): Observable<List<Vehicle>> {
+  return this.http.get<List<Vehicle>>(this.starwars_Url + '/vehicles/' )
   .pipe(
     tap(_ => this.log('fetched getVehicles')),
-    catchError(this.handleError('getVehicles', []))
+    catchError(this.handleError<List<Vehicle>>('getVehicles'))
     );
 }
 
-getVehiclesfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getVehiclesfromURL(API_URL: string): Observable<List<Vehicle>> {
+  return this.http.get<List<Vehicle>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched getVehiclessfromURL')),
-    catchError(this.handleError('getVehiclessfromURL', []))
+    catchError(this.handleError<List<Vehicle>>('getVehiclessfromURL'))
     );
 }
   /** GET People by id. Will 404 if id not found */
@@ -175,19 +175,19 @@ getVehiclesfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region Planets
-getPlanets (): Observable<List[]> {
-  return this.http.get<List[]>(this.starwars_Url + '/planets/' )
+getPlanets (): Observable<List<Planet>> {
+  return this.http.get<List<Planet>>(this.starwars_Url + '/planets/' )
   .pipe(
     tap(_ => this.log('fetched getPlanets')),
-    catchError(this.handleError('getPlanets', []))
+    catchError(this.handleError<List<Planet>>('getPlanets'))
     );
 }
 
-getPlanetsfromURL(API_URL): Observable<List[]> {
-  return this.http.get<List[]>(API_URL)
+getPlanetsfromURL(API_URL: string): Observable<List<Planet>> {
+  return this.http.get<List<Planet>>(API_URL)
   .pipe(
     tap(_ => this.log('fetched getPlanetsfromURL')),
-    catchError(this.handleError('getPlanetsfromURL', []))
+    catchError(this.handleError<List<Planet>>('getPlanetsfromURL'))
     );
 }
 
@@ -230,14 +230,14 @@ getPlanetsfromURL(API_URL): Observable<List[]> {
 //#endregion
 
 //#region Get_Details
-getPeopleDescription(peoples) {
-  const people = [];
+getPeopleDescription(peoples: string[]): People[] {
+  const people: People[] = [];
   // tslint:disable-next-line:forin
   for (const p in peoples) {
     this.http.get<People>(p)
     .pipe(
       tap(_ => this.log('fetched getPeopleDescription')),
-      catchError(this.handleError('getPeopleDescription', []))
+      catchError(this.handleError<People>('getPeopleDescription'))
       )
     .subscribe( result => {
       people.push(result);
@@ -247,7 +247,7 @@ getPeopleDescription(peoples) {
 }
 
 
-getPlanetDescription(planet): Observable<Planet> {
+getPlanetDescription(planet: string): Observable<Planet> {
  return this.http.get<Planet>(planet)
  .pipe(
   tap(_ => this.log(`fetched getPlanetDescription`)),
@@ -256,7 +256,7 @@ getPlanetDescription(planet): Observable<Planet> {
 }
 
 
-getFilmsDescription(films): Observable<Film> {
+getFilmsDescription(films: string): Observable<Film> {
 return this.http.get<Film>(films)
 .pipe(
  tap(_ => this.log(`fetched getFilmsDescription`)),

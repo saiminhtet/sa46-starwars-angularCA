@@ -41,11 +41,10 @@ a:active {
 }
 @font-face{
   font-family: "jedi";
-  src: url("src/assets/fonts/STJEDISE.TTF");
+  src: url("/assets/fonts/STJEDISE.TTF");
 }
 .jedi-font {
   font-family: "jedi";
-  src: url("src/assets/fonts/STJEDISE.TTF");
   color: #ffff00;
   font-size: 30px;
 }

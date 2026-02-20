@@ -33,11 +33,11 @@
 
 @font-face{
     font-family: "jedi";
-    src: url("src/assets/fonts/STJEDISE.TTF");
+    src: url("/assets/fonts/STJEDISE.TTF");
 }
 .jedi-font {
     font-family: "jedi";
-    src: url("src/assets/fonts/STJEDISE.TTF");
+    src: url("/assets/fonts/STJEDISE.TTF");
 }
 .card__img--top {
     height: 60%;

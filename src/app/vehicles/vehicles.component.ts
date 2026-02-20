@@ -9,14 +9,15 @@ import { List } from '../model/list';
 import { Vehicle } from '../model/vehicle';
 
 @Component({
+  standalone: false,
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {
-  
-  list: List[];
-  vehicles: Vehicle[];
+
+  list!: List<Vehicle>;
+  vehicles!: Vehicle[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router, private activatedRoute: ActivatedRoute,
@@ -31,7 +32,7 @@ export class VehiclesComponent implements OnInit {
     this.starwarsService.getVehicles()
     .subscribe(result => {
       this.list = result;
-      this.vehicles = this.list['results'];
+      this.vehicles = this.list.results;
 
       // tslint:disable-next-line:forin
       for (const v in this.vehicles) {
@@ -43,13 +44,13 @@ export class VehiclesComponent implements OnInit {
   }
 
   goPrevious() {
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
     this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getVehiclesfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
-            this.vehicles = this.list['results'];
+            this.vehicles = this.list.results;
               // tslint:disable-next-line:forin
               for (const v in this.vehicles) {
                 const id = this.vehicles[v].url.split('/')[5];
@@ -61,13 +62,13 @@ export class VehiclesComponent implements OnInit {
   }
 
   goNext() {
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
     this.spinner.show();
       if (next_url != null) {
         this.starwarsService.getVehiclesfromURL(next_url)
         .subscribe(result => {
             this.list = result;
-            this.vehicles = this.list['results'];
+            this.vehicles = this.list.results;
             // tslint:disable-next-line:forin
             for (const v in this.vehicles) {
               const id = this.vehicles[v].url.split('/')[5];

@@ -8,14 +8,15 @@ import { List } from '../model/list';
 import { Starship } from '../model/starship';
 
 @Component({
+  standalone: false,
   selector: 'app-starships',
   templateUrl: './starships.component.html',
   styleUrls: ['./starships.component.css']
 })
 export class StarshipsComponent implements OnInit {
 
-  list: List[];
-  starships: Starship[];
+  list!: List<Starship>;
+  starships!: Starship[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router,
@@ -32,7 +33,7 @@ export class StarshipsComponent implements OnInit {
     this.starwarsService.getStarships()
     .subscribe(result => {
       this.list = result;
-      this.starships = this.list['results'];
+      this.starships = this.list.results;
 
       // tslint:disable-next-line:forin
       for (const s in this.starships) {
@@ -45,13 +46,13 @@ export class StarshipsComponent implements OnInit {
   }
 
   goPrevious() {
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
     this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getStarshipsfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
-            this.starships = this.list['results'];
+            this.starships = this.list.results;
               // tslint:disable-next-line:forin
               for (const s in this.starships) {
                 const id = this.starships[s].url.split('/')[5];
@@ -63,13 +64,13 @@ export class StarshipsComponent implements OnInit {
   }
 
   goNext() {
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
     this.spinner.show();
       if (next_url != null) {
-        this.starwarsService.getFilmsfromURL(next_url)
+        this.starwarsService.getStarshipsfromURL(next_url)
         .subscribe(result => {
             this.list = result;
-            this.starships = this.list['results'];
+            this.starships = this.list.results;
               // tslint:disable-next-line:forin
               for (const s in this.starships) {
                 const id = this.starships[s].url.split('/')[5];

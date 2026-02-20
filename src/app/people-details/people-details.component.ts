@@ -13,14 +13,15 @@ import { Film } from '../model/film';
 import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 @Component({
+  standalone: false,
   selector: 'app-people-details',
   templateUrl: './people-details.component.html',
   styleUrls: ['./people-details.component.css']
 })
 export class PeopleDetailsComponent implements OnInit {
 
-   people: People;
-   planet: Planet;
+  people!: People;
+  planet!: Planet;
   constructor(private starwarsService: StarwarsService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -34,7 +35,7 @@ export class PeopleDetailsComponent implements OnInit {
   }
 
   getPeople(): void {
-     const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params['id'];
     this.starwarsService.getPeoplebyId(id)
     .subscribe(people => {
       this.people = people;
@@ -61,8 +62,8 @@ export class PeopleDetailsComponent implements OnInit {
     });
   }
 
-  getFilmDescription(films) {
-    const film = [];
+  getFilmDescription(films: string[]): Film[] {
+    const film: Film[] = [];
     // tslint:disable-next-line:forin
     for (const f in films) {
       this.http.get<Film>(films[f])
@@ -76,51 +77,50 @@ export class PeopleDetailsComponent implements OnInit {
     return film;
   }
 
-
-getSpeciesDescription(species) {
-  const species_info = [];
-  // tslint:disable-next-line:forin
-  for (const s in species) {
-    this.http.get<Species>(species[s])
-    .subscribe( result => {
-      const species_id = species[s].split('/')[5];
-      result.img_url = './assets/images/species/' + species_id + '.jpg';
-      result.url = '/species/' + species_id;
-      species_info.push(result);
-    });
+  getSpeciesDescription(species: string[]): Species[] {
+    const species_info: Species[] = [];
+    // tslint:disable-next-line:forin
+    for (const s in species) {
+      this.http.get<Species>(species[s])
+      .subscribe( result => {
+        const species_id = species[s].split('/')[5];
+        result.img_url = './assets/images/species/' + species_id + '.jpg';
+        result.url = '/species/' + species_id;
+        species_info.push(result);
+      });
+    }
+    return species_info;
   }
-  return species_info;
-}
 
-getVehicleDescription(vehicles) {
-  const vehicle = [];
-  // tslint:disable-next-line:forin
-  for (const v in vehicles) {
-    this.http.get<Vehicle>(vehicles[v])
-    .subscribe( result => {
-      const vehicle_id = result.url.split('/')[5];
-      result.img_url = './assets/images/vehicles/' + vehicle_id + '.jpg';
-      result.url = '/vehicle/' + vehicle_id;
-      vehicle.push(result);
-    });
+  getVehicleDescription(vehicles: string[]): Vehicle[] {
+    const vehicle: Vehicle[] = [];
+    // tslint:disable-next-line:forin
+    for (const v in vehicles) {
+      this.http.get<Vehicle>(vehicles[v])
+      .subscribe( result => {
+        const vehicle_id = result.url.split('/')[5];
+        result.img_url = './assets/images/vehicles/' + vehicle_id + '.jpg';
+        result.url = '/vehicle/' + vehicle_id;
+        vehicle.push(result);
+      });
+    }
+    return vehicle;
   }
-  return vehicle;
-}
 
-getStarshipsDescription(starships) {
-  const starship = [];
-  // tslint:disable-next-line:forin
-  for (const s in starships) {
-    this.http.get<Starship>(starships[s])
-    .subscribe( result => {
-      const starship_id = starships[s].split('/')[5];
-      result.img_url = './assets/images/starships/' + starship_id + '.jpg';
-      result.url = '/starship/' + starship_id;
-      starship.push(result);
-    });
+  getStarshipsDescription(starships: string[]): Starship[] {
+    const starship: Starship[] = [];
+    // tslint:disable-next-line:forin
+    for (const s in starships) {
+      this.http.get<Starship>(starships[s])
+      .subscribe( result => {
+        const starship_id = starships[s].split('/')[5];
+        result.img_url = './assets/images/starships/' + starship_id + '.jpg';
+        result.url = '/starship/' + starship_id;
+        starship.push(result);
+      });
+    }
+    return starship;
   }
-  return starship;
-}
   goBack(): void {
     this.location.back();
   }

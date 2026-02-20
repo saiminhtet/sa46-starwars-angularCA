@@ -14,13 +14,14 @@ import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 
 @Component({
+  standalone: false,
   selector: 'app-species-details',
   templateUrl: './species-details.component.html',
   styleUrls: ['./species-details.component.css']
 })
 export class SpeciesDetailsComponent implements OnInit {
 
-  species: Species;
+  species!: Species;
 
   constructor(private starwarsService: StarwarsService,
     private router: Router,
@@ -35,7 +36,7 @@ export class SpeciesDetailsComponent implements OnInit {
   }
 
   getSpecies(): void {
-    const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params['id'];
     this.starwarsService.getSpeciesbyId(id)
     .subscribe(species => {
       this.species = species;
@@ -54,8 +55,8 @@ export class SpeciesDetailsComponent implements OnInit {
     });
   }
 
-  getPeopleDescription(peoples) {
-    const people = [];
+  getPeopleDescription(peoples: string[]): People[] {
+    const people: People[] = [];
     // tslint:disable-next-line:forin
     for (const p in peoples) {
       this.http.get<People>(peoples[p])
@@ -69,8 +70,8 @@ export class SpeciesDetailsComponent implements OnInit {
     return people;
   }
 
-  getFilmDescription(films) {
-    const film = [];
+  getFilmDescription(films: string[]): Film[] {
+    const film: Film[] = [];
     // tslint:disable-next-line:forin
     for (const f in films) {
       this.http.get<Film>(films[f])

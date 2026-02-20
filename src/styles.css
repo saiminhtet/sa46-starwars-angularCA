@@ -1,5 +1,51 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+/* Flex Layout Utilities - Replacement for Angular Flex Layout */
+[fxLayout] {
+  display: flex;
+}
+
+[fxLayout="row"] {
+  flex-direction: row;
+}
+
+[fxLayout="column"] {
+  flex-direction: column;
+}
+
+[fxLayout="row wrap"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+[fxLayoutAlign="center center"] {
+  justify-content: center;
+  align-items: center;
+}
+
+[fxLayoutAlign="space-around center"] {
+  justify-content: space-around;
+  align-items: center;
+}
+
+[fxLayoutAlign="space-between center"] {
+  justify-content: space-between;
+  align-items: center;
+}
+
+[fxFlex] {
+  flex: 1;
+}
+
+[fxFlex="20"] {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+[fxFlexOffset="10px"] {
+  margin-left: 10px;
+}
+
 body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
@@ -106,12 +152,12 @@ display:block;
 }
 
 .stars {
-background:#000 url("src/assets/images/stars.png") repeat top center;
+background:#000 url("/assets/images/stars.png") repeat top center;
 z-index:0;
 }
 
 .twinkling{
-background:transparent url("src/assets/images/twinkling.png") repeat top center;
+background:transparent url("/assets/images/twinkling.png") repeat top center;
 z-index:1;
 
 -moz-animation:move-twink-back 200s linear infinite;

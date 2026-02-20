@@ -9,14 +9,15 @@ import { People } from '../model/people';
 import { List } from '../model/list';
 
 @Component({
+  standalone: false,
   selector: 'app-peoples',
   templateUrl: './peoples.component.html',
   styleUrls: ['./peoples.component.css']
 })
 export class PeoplesComponent implements OnInit {
 
-  peoples: People[];
-  list: List[];
+  peoples!: People[];
+  list!: List<People>;
 
   constructor(private starwarsService: StarwarsService,
   private router: Router, private activatedRoute: ActivatedRoute,
@@ -32,7 +33,7 @@ export class PeoplesComponent implements OnInit {
     .subscribe(result => {
           // console.log('list', result);
              this.list = result;
-            this.peoples = this.list['results'];
+            this.peoples = this.list.results;
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];
@@ -62,7 +63,7 @@ export class PeoplesComponent implements OnInit {
   // }
 
   goPrevious() {
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
     this.spinner.show();
     // console.log(previous_url);
       if (previous_url != null) {
@@ -70,7 +71,7 @@ export class PeoplesComponent implements OnInit {
         .subscribe(result => {
           // console.log('list', result);
             this.list = result;
-            this.peoples = this.list['results'];
+            this.peoples = this.list.results;
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];
@@ -85,7 +86,7 @@ export class PeoplesComponent implements OnInit {
   }
 
   goNext() {
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
     this.spinner.show();
     // console.log(next_url);
       if (next_url != null) {
@@ -93,7 +94,7 @@ export class PeoplesComponent implements OnInit {
         .subscribe(result => {
           // console.log('list', result);
             this.list = result;
-            this.peoples = this.list['results'];
+            this.peoples = this.list.results;
               // tslint:disable-next-line:forin
               for (const people in this.peoples) {
                 const people_id = this.peoples[people].url.split('/')[5];

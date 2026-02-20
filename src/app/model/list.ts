@@ -1,8 +1,6 @@
-import { People } from '../model/people';
-
-export class List {
-  count: number;
-  previous: string;
-  next: string;
-  results: People[];
+export class List<T = any> {
+  count!: number;
+  previous!: string;
+  next!: string;
+  results!: T[];
 }

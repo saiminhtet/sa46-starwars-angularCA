@@ -8,13 +8,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { List } from '../model/list';
 import { Planet } from '../model/planet';
 @Component({
+  standalone: false,
   selector: 'app-planets',
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.css']
 })
-export class PlanetsComponent implements OnInit {  
-  list: List[];
-  planets: Planet[];
+export class PlanetsComponent implements OnInit {
+  list!: List<Planet>;
+  planets!: Planet[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router, private activatedRoute: ActivatedRoute,
@@ -30,7 +31,7 @@ export class PlanetsComponent implements OnInit {
     this.starwarsService.getPlanets()
     .subscribe(result => {
       this.list = result;
-      this.planets = this.list['results'];
+      this.planets = this.list.results;
 
       // tslint:disable-next-line:forin
       for (const p in this.planets) {
@@ -43,13 +44,13 @@ export class PlanetsComponent implements OnInit {
   }
 
   goPrevious() {
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
     this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getPlanetsfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
-            this.planets = this.list['results'];
+            this.planets = this.list.results;
 
             // tslint:disable-next-line:forin
             for (const p in this.planets) {
@@ -62,13 +63,13 @@ export class PlanetsComponent implements OnInit {
   }
 
   goNext() {
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
     this.spinner.show();
       if (next_url != null) {
         this.starwarsService.getPlanetsfromURL(next_url)
         .subscribe(result => {
             this.list = result;
-            this.planets = this.list['results'];
+            this.planets = this.list.results;
 
             // tslint:disable-next-line:forin
             for (const p in this.planets) {

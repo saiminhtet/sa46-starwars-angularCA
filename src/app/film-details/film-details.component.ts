@@ -14,14 +14,15 @@ import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 
 @Component({
+  standalone: false,
   selector: 'app-film-details',
   templateUrl: './film-details.component.html',
   styleUrls: ['./film-details.component.css']
 })
 export class FilmDetailsComponent implements OnInit {
 
-  film: Film;
-  planet: Planet;
+  film!: Film;
+  planet!: Planet;
   constructor(private starwarsService: StarwarsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -35,7 +36,7 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   getFilm(): void {
-    const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params['id'];
     this.starwarsService.getFilmbyId(id)
     .subscribe(film => {
       this.film = film;
@@ -50,8 +51,8 @@ export class FilmDetailsComponent implements OnInit {
     });
   }
 
-  getPeopleDescription(peoples) {
-    const people = [];
+  getPeopleDescription(peoples: string[]): People[] {
+    const people: People[] = [];
     // tslint:disable-next-line:forin
     for (const p in peoples) {
       this.http.get<People>(peoples[p])
@@ -65,8 +66,8 @@ export class FilmDetailsComponent implements OnInit {
     return people;
   }
 
-  getSpeciesDescription(species) {
-    const species_info = [];
+  getSpeciesDescription(species: string[]): Species[] {
+    const species_info: Species[] = [];
     // tslint:disable-next-line:forin
     for (const s in species) {
       this.http.get<Species>(species[s])
@@ -80,8 +81,8 @@ export class FilmDetailsComponent implements OnInit {
     return species_info;
   }
 
-  getVehicleDescription(vehicles) {
-    const vehicle = [];
+  getVehicleDescription(vehicles: string[]): Vehicle[] {
+    const vehicle: Vehicle[] = [];
     // tslint:disable-next-line:forin
     for (const v in vehicles) {
       this.http.get<Vehicle>(vehicles[v])
@@ -95,8 +96,8 @@ export class FilmDetailsComponent implements OnInit {
     return vehicle;
   }
 
-  getStarshipsDescription(starships) {
-    const starship = [];
+  getStarshipsDescription(starships: string[]): Starship[] {
+    const starship: Starship[] = [];
     // tslint:disable-next-line:forin
     for (const s in starships) {
       this.http.get<Starship>(starships[s])
@@ -110,8 +111,8 @@ export class FilmDetailsComponent implements OnInit {
     return starship;
   }
 
-  getPlanetsDescription(planets) {
-    const planet = [];
+  getPlanetsDescription(planets: string[]): Planet[] {
+    const planet: Planet[] = [];
     // tslint:disable-next-line:forin
     for (const p in planets) {
       this.http.get<Planet>(planets[p])

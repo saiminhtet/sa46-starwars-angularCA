@@ -9,6 +9,7 @@ import { List } from '../model/list';
 import { Film } from '../model/film';
 
 @Component({
+  standalone: false,
   selector: 'app-films',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
@@ -17,8 +18,8 @@ export class FilmsComponent implements OnInit {
 
   // private ngNavigatorShareService: NgNavigatorShareService;
 
-  list: List[];
-  films: Film[];
+  list!: List<Film>;
+  films!: Film[];
 
   // constructor(private starwarsService: StarwarsService,
   //             private router: Router,
@@ -41,7 +42,7 @@ export class FilmsComponent implements OnInit {
     this.starwarsService.getFilms()
     .subscribe(result => {
       this.list = result;
-      this.films = this.list['results'];
+      this.films = this.list.results;
 
       // tslint:disable-next-line:forin
       for (const film in this.films) {
@@ -56,12 +57,12 @@ export class FilmsComponent implements OnInit {
 
   goPrevious() {
     this.spinner.show();
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
           if (previous_url != null) {
         this.starwarsService.getFilmsfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
-            this.films = this.list['results'];
+            this.films = this.list.results;
               // tslint:disable-next-line:forin
               for (const film in this.films) {
                 const film_id = this.films[film].url.split('/')[5];
@@ -75,12 +76,12 @@ export class FilmsComponent implements OnInit {
 
   goNext() {
     this.spinner.show();
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
       if (next_url != null) {
         this.starwarsService.getFilmsfromURL(next_url)
         .subscribe(result => {
             this.list = result;
-            this.films = this.list['results'];
+            this.films = this.list.results;
               // tslint:disable-next-line:forin
               for (const film in this.films) {
                 const film_id = this.films[film].url.split('/')[5];

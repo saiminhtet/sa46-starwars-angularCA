@@ -15,13 +15,14 @@ import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 
 @Component({
+  standalone: false,
   selector: 'app-planet-details',
   templateUrl: './planet-details.component.html',
   styleUrls: ['./planet-details.component.css']
 })
 export class PlanetDetailsComponent implements OnInit {
- 
-  planet: Planet;
+
+  planet!: Planet;
 
   constructor(private starwarsService: StarwarsService,
     private router: Router,
@@ -36,7 +37,7 @@ export class PlanetDetailsComponent implements OnInit {
   }
 
   getPlanet(): void {
-    const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params['id'];
     this.starwarsService.getPlanetbyId(id)
     .subscribe(planet => {
       this.planet = planet;
@@ -47,8 +48,8 @@ export class PlanetDetailsComponent implements OnInit {
     });
   }
 
-  getPeopleDescription(peoples) {
-    const people = [];
+  getPeopleDescription(peoples: string[]): People[] {
+    const people: People[] = [];
     // tslint:disable-next-line:forin
     for (const p in peoples) {
       this.http.get<People>(peoples[p])
@@ -62,8 +63,8 @@ export class PlanetDetailsComponent implements OnInit {
     return people;
   }
 
-  getFilmDescription(films) {
-    const film = [];
+  getFilmDescription(films: string[]): Film[] {
+    const film: Film[] = [];
     // tslint:disable-next-line:forin
     for (const f in films) {
       this.http.get<Film>(films[f])

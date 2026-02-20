@@ -8,14 +8,15 @@ import { List } from '../model/list';
 import { Species } from '../model/species';
 
 @Component({
+  standalone: false,
   selector: 'app-species',
   templateUrl: './species.component.html',
   styleUrls: ['./species.component.css']
 })
 export class SpeciesComponent implements OnInit {
-  
-  list: List[];
-  species: Species[];
+
+  list!: List<Species>;
+  species!: Species[];
   loading  =  true;
   constructor(private starwarsService: StarwarsService,
     private router: Router, private activatedRoute: ActivatedRoute,
@@ -30,7 +31,7 @@ export class SpeciesComponent implements OnInit {
     this.starwarsService.getSpecies()
     .subscribe(result => {
       this.list = result;
-      this.species = this.list['results'];
+      this.species = this.list.results;
 
       // tslint:disable-next-line:forin
       for (const s in this.species) {
@@ -43,13 +44,13 @@ export class SpeciesComponent implements OnInit {
   }
 
   goPrevious() {
-    const previous_url = this.list['previous'];
+    const previous_url = this.list.previous;
     this.spinner.show();
       if (previous_url != null) {
         this.starwarsService.getSpeciesfromURL(previous_url)
         .subscribe(result => {
             this.list = result;
-            this.species = this.list['results'];
+            this.species = this.list.results;
               // tslint:disable-next-line:forin
               for (const s in this.species) {
                 const id = this.species[s].url.split('/')[5];
@@ -61,13 +62,13 @@ export class SpeciesComponent implements OnInit {
   }
 
   goNext() {
-    const next_url = this.list['next'];
+    const next_url = this.list.next;
     this.spinner.show();
       if (next_url != null) {
         this.starwarsService.getSpeciesfromURL(next_url)
         .subscribe(result => {
             this.list = result;
-            this.species = this.list['results'];
+            this.species = this.list.results;
               // tslint:disable-next-line:forin
               for (const s in this.species) {
                 const id = this.species[s].url.split('/')[5];

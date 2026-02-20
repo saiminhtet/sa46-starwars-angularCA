@@ -14,14 +14,14 @@ import { Starship } from '../model/starship';
 import { Vehicle } from '../model/vehicle';
 
 @Component({
+  standalone: false,
   selector: 'app-vehicle-details',
   templateUrl: './vehicle-details.component.html',
   styleUrls: ['./vehicle-details.component.css']
 })
 export class VehicleDetailsComponent implements OnInit {
 
-
-  vehicle: Vehicle;
+  vehicle!: Vehicle;
 
   constructor(private starwarsService: StarwarsService,
     private router: Router,
@@ -36,7 +36,7 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   getVehicle(): void {
-    const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params['id'];
     this.starwarsService.getVehiclebyId(id)
     .subscribe(vehicle => {
       this.vehicle = vehicle;
@@ -47,8 +47,8 @@ export class VehicleDetailsComponent implements OnInit {
     });
   }
 
-  getPeopleDescription(peoples) {
-    const people = [];
+  getPeopleDescription(peoples: string[]): People[] {
+    const people: People[] = [];
     // tslint:disable-next-line:forin
     for (const p in peoples) {
       this.http.get<People>(peoples[p])
@@ -62,8 +62,8 @@ export class VehicleDetailsComponent implements OnInit {
     return people;
   }
 
-  getFilmDescription(films) {
-    const film = [];
+  getFilmDescription(films: string[]): Film[] {
+    const film: Film[] = [];
     // tslint:disable-next-line:forin
     for (const f in films) {
       this.http.get<Film>(films[f])
