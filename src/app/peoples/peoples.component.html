@@ -1,37 +1,38 @@
 
 
 <!-- <mat-form-field class="search-form">
-  <input matInput placeholder="Search Picture" type="text">
+<input matInput placeholder="Search Picture" type="text">
 </mat-form-field> -->
 <!-- <button button="submit" mat-raised-button color="primary">Search</button>
 <br> -->
 <div fxLayoutAlign="center">
-    <h2>Peoples</h2>
+  <h2>Peoples</h2>
 </div>
-<div fxLayout="row" fxLayoutGap="0.5%" class="btn-page" *ngIf="list">
-  <div>
+@if (list) {
+  <div fxLayout="row" fxLayoutGap="0.5%" class="btn-page">
+    <div>
       <button [disabled]="(list['previous'] == null)"  (click)="goPrevious()"  color="primary" mat-raised-button>PREVIOUS</button>&nbsp;
-  </div>
-  <div>
+    </div>
+    <div>
       <button [disabled]="(list['next'] == null)"  (click)="goNext()"  color="primary" mat-raised-button>NEXT</button>
+    </div>
   </div>
-</div>
+}
 <div class="work" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
 
-  <mat-card fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.xl="17%" fxFlex.lg="17%"  class="card-picture card" *ngFor="let people of peoples" >
-     <mat-card-title (click)="getPeopleDetails(people['url'])">{{people.name}}</mat-card-title>
-    <mat-card-subtitle>Character</mat-card-subtitle>
-    <img mat-card-image src="{{people.img_url}}" (click)="getPeopleDetails(people['url'])">
-     <mat-card-actions>
+  @for (people of peoples; track people) {
+    <mat-card fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.xl="17%" fxFlex.lg="17%"  class="card-picture card" >
+      <mat-card-title (click)="getPeopleDetails(people['url'])">{{people.name}}</mat-card-title>
+      <mat-card-subtitle>Character</mat-card-subtitle>
+      <img mat-card-image src="{{people.img_url}}" (click)="getPeopleDetails(people['url'])">
+      <mat-card-actions>
+        <button (click)="getPeopleDetails(people['url'])" mat-button>View</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  }
 
-
-    <button (click)="getPeopleDetails(people['url'])" mat-button>View</button>
-    <button mat-button>SHARE</button>
-
-  </mat-card-actions>
-  </mat-card>
-
-  </div>
+</div>
 
 
 

@@ -1,141 +1,139 @@
 <!-- <div *ngIf="people">
-  <h2>{{people.name | uppercase}} Details</h2>
-  <div><span>name: </span>{{people.name}}</div>
+<h2>{{people.name | uppercase}} Details</h2>
+<div><span>name: </span>{{people.name}}</div>
 
-   <ul>
-     <li *ngFor="let f of people.films">
-       <a>{{f}}</a>
-     </li>
-   </ul>
-  <button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
+<ul>
+  <li *ngFor="let f of people.films">
+    <a>{{f}}</a>
+  </li>
+</ul>
+<button (click)="goBack()" mat-raised-button color="primary">Go Back</button>
 </div> -->
 <div class=""  fxLayout="column" fxFlex.xs="100%" fxLayoutWrap >
-<div class="container sec-info">
+  <div class="container sec-info">
 
 
-<section fxLayout="row wrap" fxLayoutAlign="center" *ngIf="people">
-
-    <mat-card fxFlex="600px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
-
-        <mat-card-content fxLayoutAlign="center">
-
+    @if (people) {
+      <section fxLayout="row wrap" fxLayoutAlign="center">
+        <mat-card fxFlex="600px" fxLayoutAlign="center" fxFlex.sm="100%" fxFlex.xs="100%">
+          <mat-card-content fxLayoutAlign="center">
             <div fxLayout="column wrap" fxLayoutGap="40px">
-                <mat-card-title fxLayoutAlign="center">{{ people.name }}</mat-card-title>
-
-                <div fxHide.lg fxHide.xl fxLayout="row wrap">
-                        <mat-card class="card my-card">
-
-                            <img mat-card-image src="{{people.img_url}}">
-
-                        </mat-card>
-                </div>
-          <!--<div fxLayout="column wrap" fxLayoutGap="40px">-->
-          <div fxLayout="row wrap" fxLayoutAlign="center center">
-            <table >
-              <tr>
-                <td align="left"><strong>Birth Year</strong></td>  <td align="left">{{people.birth_year}}</td>
-              </tr>
-              <tr>
-               <td align="left"><strong>Species</strong></td>  <td align="left">{{people.birth_year}}</td>
-              </tr>
-              <tr>
-                 <td align="left"><strong>Height</strong></td>  <td align="left">{{people.height}}</td>
-              </tr>
-               <tr>
-                 <td align="left"><strong>Mass</strong></td>  <td align="left">{{people.mass}}</td>
-              </tr>
-                <tr>
-                 <td align="left"><strong>Gender</strong></td>  <td align="left">{{people.gender}}</td>
-               </tr>
-                 <tr>
-                    <td align="left"><strong>Hair Color</strong></td>  <td align="left">{{people.hair_color}}</td>
-                 </tr>
-                 <tr>
-                   <td align="left"><strong>Skin Color</strong></td>  <td align="left">{{people.skin_color}}</td>
+              <mat-card-title fxLayoutAlign="center">{{ people.name }}</mat-card-title>
+              <div fxHide.lg fxHide.xl fxLayout="row wrap">
+                <mat-card class="card my-card">
+                  <img mat-card-image src="{{people.img_url}}">
+                </mat-card>
+              </div>
+              <!--<div fxLayout="column wrap" fxLayoutGap="40px">-->
+              <div fxLayout="row wrap" fxLayoutAlign="center center">
+                <table >
+                  <tr>
+                    <td align="left"><strong>Birth Year</strong></td>  <td align="left">{{people.birth_year}}</td>
                   </tr>
                   <tr>
-                 <td align="left"><strong>Homeworld</strong></td>  <td align="left" *ngIf="people.p_homeworld">{{people.p_homeworld.name}}</td>
+                    <td align="left"><strong>Species</strong></td>  <td align="left">{{people.birth_year}}</td>
                   </tr>
-            </table>
+                  <tr>
+                    <td align="left"><strong>Height</strong></td>  <td align="left">{{people.height}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left"><strong>Mass</strong></td>  <td align="left">{{people.mass}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left"><strong>Gender</strong></td>  <td align="left">{{people.gender}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left"><strong>Hair Color</strong></td>  <td align="left">{{people.hair_color}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left"><strong>Skin Color</strong></td>  <td align="left">{{people.skin_color}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left"><strong>Homeworld</strong></td>  @if (people.p_homeworld) {
+                    <td align="left">{{people.p_homeworld.name}}</td>
+                  }
+                </tr>
+              </table>
             </div>
           </div>
-
-            <div fxHide.xs fxHide.sm fxLayout="column wrap" fxFlex="30%" fxFlexOffset="40px">
-
-                <mat-card class="card my-card">
-
-                   <img mat-card-image src="{{people.img_url}}">
-
-                 </mat-card>
-            </div>
+          <div fxHide.xs fxHide.sm fxLayout="column wrap" fxFlex="30%" fxFlexOffset="40px">
+            <mat-card class="card my-card">
+              <img mat-card-image src="{{people.img_url}}">
+            </mat-card>
+          </div>
         </mat-card-content>
       </mat-card>
-</section>
+    </section>
+  }
 
 </div>
 
 <div class="container">
-    <div class="container sec-info">
-    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
+  <div class="container sec-info">
+    @if (people) {
+      <section fxLayout="row wrap" fxLayoutAlign="center center">
         <mat-card fxFlex="1100px" fxFlex.sm="100%" fxFlex.xs="100%">
-            <mat-card-title>Related Films</mat-card-title>
-            <mat-card-content fxLayout="row wrap">
-              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="30px" *ngFor="let film of people.p_films">
-                  <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle (click)="gotoDetails(film.url)"><strong>{{film.title}}</strong></mat-card-subtitle>
-
-                       <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                       <img class="header-img mat-card-avatar"  mat-card-image src="{{film.img_url}}" (click)="gotoDetails(film.url)">
-
-                    </mat-card>
-                    <!-- <mat-card class="card my-card">
-                        <mat-card-title><a href="https://www.google.com.sg">{{film.title}}</a></mat-card-title>
-                        <img mat-card-image src="{{film.img_url}}">
-
-                      </mat-card> -->
-              </div>
-            </mat-card-content>
-          </mat-card>
+          <mat-card-title>Related Films</mat-card-title>
+          <mat-card-content fxLayout="row wrap">
+            @for (film of people.p_films; track film) {
+              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlex.xs="35%" fxFlex.lg="17%" fxFlex.xl="17%" fxFlexOffset="30px">
+                <mat-card class="card my-card sm-card">
+                  <mat-card-subtitle (click)="gotoDetails(film.url)"><strong>{{film.title}}</strong></mat-card-subtitle>
+                  <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                  <img class="header-img mat-card-avatar"  mat-card-image src="{{film.img_url}}" (click)="gotoDetails(film.url)">
+                </mat-card>
+                <!-- <mat-card class="card my-card">
+                <mat-card-title><a href="https://www.google.com.sg">{{film.title}}</a></mat-card-title>
+                <img mat-card-image src="{{film.img_url}}">
+              </mat-card> -->
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
     </section>
+  }
 </div>
-</div>
-
-    <div class="container sec-info">
-    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
-        <mat-card fxFlex="1100px" fxFlex.xs="100%">
-            <mat-card-title>Related Vechicles</mat-card-title>
-            <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
-              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let vehicle of people.p_vehicles">
-                  <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle (click)="gotoDetails(vehicle.url)"><strong>{{vehicle.name}}</strong></mat-card-subtitle>
-
-                       <img mat-card-image  class="header-img mat-card-avatar" src="{{vehicle.img_url}}" (click)="gotoDetails(vehicle.url)">
-
-
-                    </mat-card>
-              </div>
-            </mat-card-content>
-          </mat-card>
-    </section>
 </div>
 
 <div class="container sec-info">
-    <section fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="people">
-        <mat-card fxFlex="1100px" fxFlex.xs="100%">
-            <mat-card-title>Related Starships</mat-card-title>
-            <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
-              <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px" *ngFor="let starship of people.p_starships">
-                  <mat-card class="card my-card sm-card">
-                      <mat-card-subtitle (click)="gotoDetails(starship.url)"><strong>{{starship.name}}</strong></mat-card-subtitle>
-
-                       <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
-                       <img mat-card-image class="header-img mat-card-avatar" src="{{starship.img_url}}" (click)="gotoDetails(starship.url)">
-
-                    </mat-card>
-              </div>
-            </mat-card-content>
-          </mat-card>
+  @if (people) {
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-card fxFlex="1100px" fxFlex.xs="100%">
+        <mat-card-title>Related Vechicles</mat-card-title>
+        <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+          @for (vehicle of people.p_vehicles; track vehicle) {
+            <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px">
+              <mat-card class="card my-card sm-card">
+                <mat-card-subtitle (click)="gotoDetails(vehicle.url)"><strong>{{vehicle.name}}</strong></mat-card-subtitle>
+                <img mat-card-image  class="header-img mat-card-avatar" src="{{vehicle.img_url}}" (click)="gotoDetails(vehicle.url)">
+              </mat-card>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
     </section>
+  }
+</div>
+
+<div class="container sec-info">
+  @if (people) {
+    <section fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-card fxFlex="1100px" fxFlex.xs="100%">
+        <mat-card-title>Related Starships</mat-card-title>
+        <mat-card-content fxLayout="row wrap" fxLayoutAlign="center">
+          @for (starship of people.p_starships; track starship) {
+            <div fxLayout="column wrap" fxLayoutGap="20px" fxFlexOffset="10px">
+              <mat-card class="card my-card sm-card">
+                <mat-card-subtitle (click)="gotoDetails(starship.url)"><strong>{{starship.name}}</strong></mat-card-subtitle>
+                <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' + film.img_url + ')', 'background-size': 'cover'  }"></div> -->
+                <img mat-card-image class="header-img mat-card-avatar" src="{{starship.img_url}}" (click)="gotoDetails(starship.url)">
+              </mat-card>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
+    </section>
+  }
 
 </div>
 </div>
