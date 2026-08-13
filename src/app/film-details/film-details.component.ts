@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,6 +17,7 @@ import { Vehicle } from '../model/vehicle';
   standalone: false,
   selector: 'app-film-details',
   templateUrl: './film-details.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./film-details.component.css']
 })
 export class FilmDetailsComponent implements OnInit {

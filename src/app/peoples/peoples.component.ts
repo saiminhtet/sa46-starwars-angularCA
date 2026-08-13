@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
@@ -12,6 +12,7 @@ import { List } from '../model/list';
   standalone: false,
   selector: 'app-peoples',
   templateUrl: './peoples.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./peoples.component.css']
 })
 export class PeoplesComponent implements OnInit {

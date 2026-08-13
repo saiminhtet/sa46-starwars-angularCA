@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
@@ -12,6 +12,7 @@ import { Vehicle } from '../model/vehicle';
   standalone: false,
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {

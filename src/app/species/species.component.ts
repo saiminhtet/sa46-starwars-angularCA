@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
@@ -11,6 +11,7 @@ import { Species } from '../model/species';
   standalone: false,
   selector: 'app-species',
   templateUrl: './species.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./species.component.css']
 })
 export class SpeciesComponent implements OnInit {

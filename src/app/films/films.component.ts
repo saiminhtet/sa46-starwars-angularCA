@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { StarwarsService } from '../starwars.service';
@@ -12,6 +12,7 @@ import { Film } from '../model/film';
   standalone: false,
   selector: 'app-films',
   templateUrl: './films.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./films.component.css']
 })
 export class FilmsComponent implements OnInit {
